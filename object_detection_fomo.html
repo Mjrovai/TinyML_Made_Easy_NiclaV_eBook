@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TinyML Made Easy - 4&nbsp; Object Detection</title>
+<title>TinyML Made Easy - 3&nbsp; Object Detection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./object_detection_fomo.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Object Detection</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./object_detection_fomo.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Object Detection</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -195,32 +195,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./niclav_sys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./image_classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_detection_fomo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Object Detection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Object Detection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kws_feature_eng.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kws_nicla.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Keyword Spotting (KWS)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -239,32 +251,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#object-detection-versus-image-classification" id="toc-object-detection-versus-image-classification" class="nav-link" data-scroll-target="#object-detection-versus-image-classification"><span class="header-section-number">4.1.1</span> Object Detection versus Image Classification</a></li>
-  <li><a href="#an-innovative-solution-for-object-detection-fomo" id="toc-an-innovative-solution-for-object-detection-fomo" class="nav-link" data-scroll-target="#an-innovative-solution-for-object-detection-fomo"><span class="header-section-number">4.1.2</span> An innovative solution for Object Detection: FOMO</a></li>
+  <li><a href="#object-detection-versus-image-classification" id="toc-object-detection-versus-image-classification" class="nav-link" data-scroll-target="#object-detection-versus-image-classification"><span class="header-section-number">3.1.1</span> Object Detection versus Image Classification</a></li>
+  <li><a href="#an-innovative-solution-for-object-detection-fomo" id="toc-an-innovative-solution-for-object-detection-fomo" class="nav-link" data-scroll-target="#an-innovative-solution-for-object-detection-fomo"><span class="header-section-number">3.1.2</span> An innovative solution for Object Detection: FOMO</a></li>
   </ul></li>
-  <li><a href="#the-object-detection-project-goal" id="toc-the-object-detection-project-goal" class="nav-link" data-scroll-target="#the-object-detection-project-goal"><span class="header-section-number">4.2</span> The Object Detection Project Goal</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">4.3</span> Data Collection</a>
+  <li><a href="#the-object-detection-project-goal" id="toc-the-object-detection-project-goal" class="nav-link" data-scroll-target="#the-object-detection-project-goal"><span class="header-section-number">3.2</span> The Object Detection Project Goal</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">3.3</span> Data Collection</a>
   <ul class="collapse">
-  <li><a href="#collecting-dataset-with-openmv-ide" id="toc-collecting-dataset-with-openmv-ide" class="nav-link" data-scroll-target="#collecting-dataset-with-openmv-ide"><span class="header-section-number">4.3.1</span> Collecting Dataset with OpenMV IDE</a></li>
+  <li><a href="#collecting-dataset-with-openmv-ide" id="toc-collecting-dataset-with-openmv-ide" class="nav-link" data-scroll-target="#collecting-dataset-with-openmv-ide"><span class="header-section-number">3.3.1</span> Collecting Dataset with OpenMV IDE</a></li>
   </ul></li>
-  <li><a href="#edge-impulse-studio" id="toc-edge-impulse-studio" class="nav-link" data-scroll-target="#edge-impulse-studio"><span class="header-section-number">4.4</span> Edge Impulse Studio</a>
+  <li><a href="#edge-impulse-studio" id="toc-edge-impulse-studio" class="nav-link" data-scroll-target="#edge-impulse-studio"><span class="header-section-number">3.4</span> Edge Impulse Studio</a>
   <ul class="collapse">
-  <li><a href="#setup-the-project" id="toc-setup-the-project" class="nav-link" data-scroll-target="#setup-the-project"><span class="header-section-number">4.4.1</span> Setup the project</a></li>
-  <li><a href="#uploading-the-unlabeled-data" id="toc-uploading-the-unlabeled-data" class="nav-link" data-scroll-target="#uploading-the-unlabeled-data"><span class="header-section-number">4.4.2</span> Uploading the unlabeled data</a></li>
-  <li><a href="#labeling-the-dataset" id="toc-labeling-the-dataset" class="nav-link" data-scroll-target="#labeling-the-dataset"><span class="header-section-number">4.4.3</span> Labeling the Dataset</a></li>
+  <li><a href="#setup-the-project" id="toc-setup-the-project" class="nav-link" data-scroll-target="#setup-the-project"><span class="header-section-number">3.4.1</span> Setup the project</a></li>
+  <li><a href="#uploading-the-unlabeled-data" id="toc-uploading-the-unlabeled-data" class="nav-link" data-scroll-target="#uploading-the-unlabeled-data"><span class="header-section-number">3.4.2</span> Uploading the unlabeled data</a></li>
+  <li><a href="#labeling-the-dataset" id="toc-labeling-the-dataset" class="nav-link" data-scroll-target="#labeling-the-dataset"><span class="header-section-number">3.4.3</span> Labeling the Dataset</a></li>
   </ul></li>
-  <li><a href="#the-impulse-design" id="toc-the-impulse-design" class="nav-link" data-scroll-target="#the-impulse-design"><span class="header-section-number">4.5</span> The Impulse Design</a>
+  <li><a href="#the-impulse-design" id="toc-the-impulse-design" class="nav-link" data-scroll-target="#the-impulse-design"><span class="header-section-number">3.5</span> The Impulse Design</a>
   <ul class="collapse">
-  <li><a href="#preprocessing-all-dataset" id="toc-preprocessing-all-dataset" class="nav-link" data-scroll-target="#preprocessing-all-dataset"><span class="header-section-number">4.5.1</span> Preprocessing all dataset</a></li>
+  <li><a href="#preprocessing-all-dataset" id="toc-preprocessing-all-dataset" class="nav-link" data-scroll-target="#preprocessing-all-dataset"><span class="header-section-number">3.5.1</span> Preprocessing all dataset</a></li>
   </ul></li>
-  <li><a href="#model-design-training-and-test" id="toc-model-design-training-and-test" class="nav-link" data-scroll-target="#model-design-training-and-test"><span class="header-section-number">4.6</span> Model Design, Training, and Test</a>
+  <li><a href="#model-design-training-and-test" id="toc-model-design-training-and-test" class="nav-link" data-scroll-target="#model-design-training-and-test"><span class="header-section-number">3.6</span> Model Design, Training, and Test</a>
   <ul class="collapse">
-  <li><a href="#test-model-with-live-classification" id="toc-test-model-with-live-classification" class="nav-link" data-scroll-target="#test-model-with-live-classification"><span class="header-section-number">4.6.1</span> Test model with “Live Classification”</a></li>
+  <li><a href="#test-model-with-live-classification" id="toc-test-model-with-live-classification" class="nav-link" data-scroll-target="#test-model-with-live-classification"><span class="header-section-number">3.6.1</span> Test model with “Live Classification”</a></li>
   </ul></li>
-  <li><a href="#deploying-the-model" id="toc-deploying-the-model" class="nav-link" data-scroll-target="#deploying-the-model"><span class="header-section-number">4.7</span> Deploying the Model</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4.8</span> Conclusion</a></li>
+  <li><a href="#deploying-the-model" id="toc-deploying-the-model" class="nav-link" data-scroll-target="#deploying-the-model"><span class="header-section-number">3.7</span> Deploying the Model</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.8</span> Conclusion</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/edit/main/object_detection_fomo.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/blob/main/object_detection_fomo.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -273,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Object Detection</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Object Detection</span></h1>
 </div>
 
 
@@ -293,16 +305,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/obj_det_ini.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="introduction" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
 <p>This is a continuation of <strong>CV on Nicla Vision</strong>, now exploring <strong>Object Detection</strong> on microcontrollers.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images_4_1/cv_obj_detect.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="object-detection-versus-image-classification" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="object-detection-versus-image-classification"><span class="header-section-number">4.1.1</span> Object Detection versus Image Classification</h3>
+<section id="object-detection-versus-image-classification" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="object-detection-versus-image-classification"><span class="header-section-number">3.1.1</span> Object Detection versus Image Classification</h3>
 <p>The main task with Image Classification models is to produce a list of the most probable object categories present on an image, for example, to identify a tabby cat just after his dinner:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -334,14 +346,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Those models used for Object detection (such as the MobileNet SSD or YOLO) usually have several MB in size, which is OK for use with Raspberry Pi but unsuitable for use with embedded devices, where the RAM usually is lower than 1M Bytes.</p>
 </section>
-<section id="an-innovative-solution-for-object-detection-fomo" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="an-innovative-solution-for-object-detection-fomo"><span class="header-section-number">4.1.2</span> An innovative solution for Object Detection: FOMO</h3>
+<section id="an-innovative-solution-for-object-detection-fomo" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="an-innovative-solution-for-object-detection-fomo"><span class="header-section-number">3.1.2</span> An innovative solution for Object Detection: FOMO</h3>
 <p><a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices">Edge Impulse launched in 2022, <strong>FOMO</strong> (Faster Objects, More Objects)</a>, a novel solution to perform object detection on embedded devices, not only on the Nicla Vision (Cortex M7) but also on Cortex M4F CPUs (Arduino Nano33 and OpenMV M4 series) as well the Espressif ESP32 devices (ESP-CAM and XIAO ESP32S3 Sense).</p>
 <p>In this Hands-On exercise, we will explore using FOMO with Object Detection, not entering many details about the model itself. To understand more about how the model works, you can go into the <a href="https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects">official FOMO announcement</a> by Edge Impulse, where Louis Moreau and Mat Kelcey explain in detail how it works.</p>
 </section>
 </section>
-<section id="the-object-detection-project-goal" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="the-object-detection-project-goal"><span class="header-section-number">4.2</span> The Object Detection Project Goal</h2>
+<section id="the-object-detection-project-goal" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-object-detection-project-goal"><span class="header-section-number">3.2</span> The Object Detection Project Goal</h2>
 <p>All Machine Learning projects need to start with a detailed goal. Let’s assume we are in an industrial facility and must sort and count <strong>wheels</strong> and special <strong>boxes</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -363,11 +375,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We are interested in which object is in the image, its location (centroid), and how many we can find on it. The object’s size is not detected with FOMO, as with MobileNet SSD or YOLO, where the Bounding Box is one of the model outputs.</p>
 <p>We will develop the project using the Nicla Vision for image capture and model inference. The ML project will be developed using the Edge Impulse Studio. But before starting the object detection project in the Studio, let’s create a <em>raw dataset</em> (not labeled) with images that contain the objects to be detected.</p>
 </section>
-<section id="data-collection" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">4.3</span> Data Collection</h2>
+<section id="data-collection" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">3.3</span> Data Collection</h2>
 <p>We can use the Edge Impulse Studio, the OpenMV IDE, your phone, or other devices for the image capture. Here, we will use again the OpenMV IDE for our purpose.</p>
-<section id="collecting-dataset-with-openmv-ide" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="collecting-dataset-with-openmv-ide"><span class="header-section-number">4.3.1</span> Collecting Dataset with OpenMV IDE</h3>
+<section id="collecting-dataset-with-openmv-ide" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="collecting-dataset-with-openmv-ide"><span class="header-section-number">3.3.1</span> Collecting Dataset with OpenMV IDE</h3>
 <p>First, create in your computer a folder where your data will be saved, for example, “data.” Next, on the OpenMV IDE, go to Tools &gt; Dataset Editor and select New Dataset to start the dataset collection:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -391,10 +403,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>After capturing your dataset, close the Dataset Editor Tool on the <code>Tools &gt; Dataset Editor</code>.</p>
 </section>
 </section>
-<section id="edge-impulse-studio" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="edge-impulse-studio"><span class="header-section-number">4.4</span> Edge Impulse Studio</h2>
-<section id="setup-the-project" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="setup-the-project"><span class="header-section-number">4.4.1</span> Setup the project</h3>
+<section id="edge-impulse-studio" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="edge-impulse-studio"><span class="header-section-number">3.4</span> Edge Impulse Studio</h2>
+<section id="setup-the-project" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="setup-the-project"><span class="header-section-number">3.4.1</span> Setup the project</h3>
 <p>Go to <a href="https://www.edgeimpulse.com/">Edge Impulse Studio,</a> enter your credentials at <strong>Login</strong> (or create an account), and start a new project.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -411,8 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="uploading-the-unlabeled-data" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="uploading-the-unlabeled-data"><span class="header-section-number">4.4.2</span> Uploading the unlabeled data</h3>
+<section id="uploading-the-unlabeled-data" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="uploading-the-unlabeled-data"><span class="header-section-number">3.4.2</span> Uploading the unlabeled data</h3>
 <p>On Studio, go to the <code>Data acquisition</code> tab, and on the <code>UPLOAD DATA</code> section, upload from your computer files captured.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -441,8 +453,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can use the <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-uploader#bounding-boxes">EI uploader</a> to import your data if you already have a labeled dataset containing bounding boxes.</p>
 </blockquote>
 </section>
-<section id="labeling-the-dataset" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="labeling-the-dataset"><span class="header-section-number">4.4.3</span> Labeling the Dataset</h3>
+<section id="labeling-the-dataset" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="labeling-the-dataset"><span class="header-section-number">3.4.3</span> Labeling the Dataset</h3>
 <p>Starting with the first image of your unlabeled data, use your mouse to drag a box around an object to add a label. Then click <strong>Save labels</strong> to advance to the next item.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -469,8 +481,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="the-impulse-design" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="the-impulse-design"><span class="header-section-number">4.5</span> The Impulse Design</h2>
+<section id="the-impulse-design" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="the-impulse-design"><span class="header-section-number">3.5</span> The Impulse Design</h2>
 <p>In this phase, you should define how to:</p>
 <ul>
 <li><p><strong>Pre-processing</strong> consists of resizing the individual images from <code>320 x 240</code> to <code>96 x 96</code> and squashing them (squared form, without cropping). Afterwards, the images are converted from RGB to Grayscale.</p></li>
@@ -481,8 +493,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="Images_4_1/img_14.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="preprocessing-all-dataset" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="preprocessing-all-dataset"><span class="header-section-number">4.5.1</span> Preprocessing all dataset</h3>
+<section id="preprocessing-all-dataset" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="preprocessing-all-dataset"><span class="header-section-number">3.5.1</span> Preprocessing all dataset</h3>
 <p>In this section, select <strong>Color depth</strong> as <code>Grayscale</code>, which is suitable for use with FOMO models and Save <code>parameters</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -501,8 +513,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 </section>
 </section>
-<section id="model-design-training-and-test" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="model-design-training-and-test"><span class="header-section-number">4.6</span> Model Design, Training, and Test</h2>
+<section id="model-design-training-and-test" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="model-design-training-and-test"><span class="header-section-number">3.6</span> Model Design, Training, and Test</h2>
 <p>We will use FOMO, an object detection model based on MobileNetV2 (alpha 0.35) designed to coarsely segment an image into a grid of <strong>background</strong> vs <strong>objects of interest</strong> (here, <em>boxes</em> and <em>wheels</em>).</p>
 <p>FOMO is an innovative machine learning model for object detection, which can use up to 30 times less energy and memory than traditional models like Mobilenet SSD and YOLOv5. FOMO can operate on microcontrollers with less than 200 KB of RAM. The main reason this is possible is that while other models calculate the object’s size by drawing a square around it (bounding box), FOMO ignores the size of the image, providing only the information about where the object is located in the image, by means of its centroid coordinates.</p>
 <p><strong>How FOMO works?</strong></p>
@@ -537,8 +549,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>In object detection tasks, accuracy is generally not the primary <a href="https://learnopencv.com/mean-average-precision-map-object-detection-model-evaluation-metric/">evaluation metric</a>. Object detection involves classifying objects and providing bounding boxes around them, making it a more complex problem than simple classification. The issue is that we do not have the bounding box, only the centroids. In short, using accuracy as a metric could be misleading and may not provide a complete understanding of how well the model is performing. Because of that, we will use the F1 score.</p>
 </blockquote>
-<section id="test-model-with-live-classification" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="test-model-with-live-classification"><span class="header-section-number">4.6.1</span> Test model with “Live Classification”</h3>
+<section id="test-model-with-live-classification" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="test-model-with-live-classification"><span class="header-section-number">3.6.1</span> Test model with “Live Classification”</h3>
 <p>Since Edge Impulse officially supports the Nicla Vision, let’s connect it to the Studio. For that, follow the steps:</p>
 <ul>
 <li><p>Download the <a href="https://cdn.edgeimpulse.com/firmware/arduino-nicla-vision.zip">last EI Firmware</a> and unzip it.</p></li>
@@ -568,8 +580,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One thing to be noted is that the model can produce false positives and negatives. This can be minimized by defining a proper <code>Confidence Threshold</code> (use the <code>Three dots</code> menu for the set-up). Try with 0.8 or more.</p>
 </section>
 </section>
-<section id="deploying-the-model" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="deploying-the-model"><span class="header-section-number">4.7</span> Deploying the Model</h2>
+<section id="deploying-the-model" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="deploying-the-model"><span class="header-section-number">3.7</span> Deploying the Model</h2>
 <p>Select OpenMV Firmware on the Deploy Tab and press [Build].</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -644,8 +656,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note that the frames per second rate is around 8 fps (similar to what we got with the Image Classification project). This happens because FOMO is cleverly built over a CNN model, not with an object detection model like the SSD MobileNet. For example, when running a MobileNetV2 SSD FPN-Lite 320x320 model on a Raspberry Pi 4, the latency is around 5 times higher (around 1.5 fps)</p>
 <p>Here is a short video showing the inference results: </p><div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/JbpoqRp3BbM" width="480" height="270" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
 </section>
-<section id="conclusion" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4.8</span> Conclusion</h2>
+<section id="conclusion" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.8</span> Conclusion</h2>
 <p>FOMO is a significant leap in the image processing space, as Louis Moreau and Mat Kelcey put it during its launch in 2022:</p>
 <blockquote class="blockquote">
 <p>FOMO is a ground-breaking algorithm that brings real-time object detection, tracking, and counting to microcontrollers for the first time.</p>
@@ -913,12 +925,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./image_classification.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./kws_feature_eng.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

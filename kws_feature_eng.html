@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TinyML Made Easy - 5&nbsp; Feature Engineering for Audio Classification</title>
+<title>TinyML Made Easy - 4&nbsp; Feature Engineering for Audio Classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./kws_nicla.html" rel="next">
 <link href="./object_detection_fomo.html" rel="prev">
 <link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./kws_feature_eng.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./kws_feature_eng.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,32 +163,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./niclav_sys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./image_classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_detection_fomo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Object Detection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Object Detection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kws_feature_eng.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kws_nicla.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Keyword Spotting (KWS)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -207,22 +219,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
-  <li><a href="#the-kws" id="toc-the-kws" class="nav-link" data-scroll-target="#the-kws"><span class="header-section-number">5.2</span> The KWS</a></li>
-  <li><a href="#introduction-to-audio-signals" id="toc-introduction-to-audio-signals" class="nav-link" data-scroll-target="#introduction-to-audio-signals"><span class="header-section-number">5.3</span> Introduction to Audio Signals</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
+  <li><a href="#the-kws" id="toc-the-kws" class="nav-link" data-scroll-target="#the-kws"><span class="header-section-number">4.2</span> The KWS</a></li>
+  <li><a href="#introduction-to-audio-signals" id="toc-introduction-to-audio-signals" class="nav-link" data-scroll-target="#introduction-to-audio-signals"><span class="header-section-number">4.3</span> Introduction to Audio Signals</a>
   <ul class="collapse">
-  <li><a href="#why-not-raw-audio" id="toc-why-not-raw-audio" class="nav-link" data-scroll-target="#why-not-raw-audio"><span class="header-section-number">5.3.1</span> Why Not Raw Audio?</a></li>
+  <li><a href="#why-not-raw-audio" id="toc-why-not-raw-audio" class="nav-link" data-scroll-target="#why-not-raw-audio"><span class="header-section-number">4.3.1</span> Why Not Raw Audio?</a></li>
   </ul></li>
-  <li><a href="#introduction-to-mfccs" id="toc-introduction-to-mfccs" class="nav-link" data-scroll-target="#introduction-to-mfccs"><span class="header-section-number">5.4</span> Introduction to MFCCs</a>
+  <li><a href="#introduction-to-mfccs" id="toc-introduction-to-mfccs" class="nav-link" data-scroll-target="#introduction-to-mfccs"><span class="header-section-number">4.4</span> Introduction to MFCCs</a>
   <ul class="collapse">
-  <li><a href="#what-are-mfccs" id="toc-what-are-mfccs" class="nav-link" data-scroll-target="#what-are-mfccs"><span class="header-section-number">5.4.1</span> What are MFCCs?</a></li>
-  <li><a href="#why-are-mfccs-important" id="toc-why-are-mfccs-important" class="nav-link" data-scroll-target="#why-are-mfccs-important"><span class="header-section-number">5.4.2</span> Why are MFCCs important?</a></li>
-  <li><a href="#computing-mfccs" id="toc-computing-mfccs" class="nav-link" data-scroll-target="#computing-mfccs"><span class="header-section-number">5.4.3</span> Computing MFCCs</a></li>
+  <li><a href="#what-are-mfccs" id="toc-what-are-mfccs" class="nav-link" data-scroll-target="#what-are-mfccs"><span class="header-section-number">4.4.1</span> What are MFCCs?</a></li>
+  <li><a href="#why-are-mfccs-important" id="toc-why-are-mfccs-important" class="nav-link" data-scroll-target="#why-are-mfccs-important"><span class="header-section-number">4.4.2</span> Why are MFCCs important?</a></li>
+  <li><a href="#computing-mfccs" id="toc-computing-mfccs" class="nav-link" data-scroll-target="#computing-mfccs"><span class="header-section-number">4.4.3</span> Computing MFCCs</a></li>
   </ul></li>
-  <li><a href="#hands-on-using-python" id="toc-hands-on-using-python" class="nav-link" data-scroll-target="#hands-on-using-python"><span class="header-section-number">5.5</span> Hands-On using Python</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5.6</span> Conclusion</a>
+  <li><a href="#hands-on-using-python" id="toc-hands-on-using-python" class="nav-link" data-scroll-target="#hands-on-using-python"><span class="header-section-number">4.5</span> Hands-On using Python</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4.6</span> Conclusion</a>
   <ul class="collapse">
-  <li><a href="#what-feature-extraction-technique-should-we-use" id="toc-what-feature-extraction-technique-should-we-use" class="nav-link" data-scroll-target="#what-feature-extraction-technique-should-we-use"><span class="header-section-number">5.6.1</span> <strong>What</strong> Feature Extraction technique <strong>should we use?</strong></a></li>
+  <li><a href="#what-feature-extraction-technique-should-we-use" id="toc-what-feature-extraction-technique-should-we-use" class="nav-link" data-scroll-target="#what-feature-extraction-technique-should-we-use"><span class="header-section-number">4.6.1</span> <strong>What</strong> Feature Extraction technique <strong>should we use?</strong></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/edit/main/kws_feature_eng.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/blob/main/kws_feature_eng.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -232,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></h1>
 </div>
 
 
@@ -252,16 +264,16 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/kws_under_the_hood_ini.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="introduction" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
 <p>In this hands-on tutorial, the emphasis is on the critical role that feature engineering plays in optimizing the performance of machine learning models applied to audio classification tasks, such as speech recognition. It is essential to be aware that the performance of any machine learning model relies heavily on the quality of features used, and we will deal with “under-the-hood” mechanics of feature extraction, mainly focusing on Mel-frequency Cepstral Coefficients (MFCCs), a cornerstone in the field of audio signal processing.</p>
 <p>Machine learning models, especially traditional algorithms, don’t understand audio waves. They understand numbers arranged in some meaningful way, i.e., features. These features encapsulate the characteristics of the audio signal, making it easier for models to distinguish between different sounds.</p>
 <blockquote class="blockquote">
 <p>This tutorial will deal with generating features specifically for audio classification. This can be particularly interesting for applying machine learning to a variety of audio data, whether for speech recognition, music categorization, insect classification based on wingbeat sounds, or other sound analysis tasks</p>
 </blockquote>
 </section>
-<section id="the-kws" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="the-kws"><span class="header-section-number">5.2</span> The KWS</h2>
+<section id="the-kws" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-kws"><span class="header-section-number">4.2</span> The KWS</h2>
 <p>The most common TinyML application is Keyword Spotting (KWS), a subset of the broader field of speech recognition. While general speech recognition aims to transcribe all spoken words into text, Keyword Spotting focuses on detecting specific “keywords” or “wake words” in a continuous audio stream. The system is trained to recognize these keywords as predefined phrases or words, such as <em>yes</em> or <em>no</em>. In short, KWS is a specialized form of speech recognition with its own set of challenges and requirements.</p>
 <p>Here a typical KWS Process using MFCC Feature Converter:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -269,8 +281,8 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images_4_2/kws_diagram.jpg" class="img-fluid figure-img" style="width:7.29in"></p>
 </figure>
 </div>
-<section id="applications-of-kws" class="level4" data-number="5.2.0.1">
-<h4 data-number="5.2.0.1" class="anchored" data-anchor-id="applications-of-kws"><span class="header-section-number">5.2.0.1</span> Applications of KWS:</h4>
+<section id="applications-of-kws" class="level4" data-number="4.2.0.1">
+<h4 data-number="4.2.0.1" class="anchored" data-anchor-id="applications-of-kws"><span class="header-section-number">4.2.0.1</span> Applications of KWS:</h4>
 <ul>
 <li><strong>Voice Assistants</strong>: In devices like Amazon’s Alexa or Google Home, KWS is used to detect the wake word (“Alexa” or “Hey Google”) to activate the device.</li>
 <li><strong>Voice-Activated Controls</strong>: In automotive or industrial settings, KWS can be used to initiate specific commands like “Start engine” or “Turn off lights.”</li>
@@ -278,8 +290,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Telecommunication Services</strong>: Customer service lines may use KWS to route calls based on spoken keywords.</li>
 </ul>
 </section>
-<section id="differences-from-general-speech-recognition" class="level4" data-number="5.2.0.2">
-<h4 data-number="5.2.0.2" class="anchored" data-anchor-id="differences-from-general-speech-recognition"><span class="header-section-number">5.2.0.2</span> Differences from General Speech Recognition:</h4>
+<section id="differences-from-general-speech-recognition" class="level4" data-number="4.2.0.2">
+<h4 data-number="4.2.0.2" class="anchored" data-anchor-id="differences-from-general-speech-recognition"><span class="header-section-number">4.2.0.2</span> Differences from General Speech Recognition:</h4>
 <ul>
 <li><strong>Computational Efficiency</strong>: KWS is usually designed to be less computationally intensive than full speech recognition, as it only needs to recognize a small set of phrases.</li>
 <li><strong>Real-time Processing</strong>: KWS often operates in real-time and is optimized for low-latency detection of keywords.</li>
@@ -288,8 +300,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="introduction-to-audio-signals" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="introduction-to-audio-signals"><span class="header-section-number">5.3</span> Introduction to Audio Signals</h2>
+<section id="introduction-to-audio-signals" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="introduction-to-audio-signals"><span class="header-section-number">4.3</span> Introduction to Audio Signals</h2>
 <p>Understanding the basic properties of audio signals is crucial for effective feature extraction and, ultimately, for successfully applying machine learning algorithms in audio classification tasks. Audio signals are complex waveforms that capture fluctuations in air pressure over time. These signals can be characterized by several fundamental attributes: sampling rate, frequency, and amplitude.</p>
 <ul>
 <li><p><strong>Frequency and Amplitude</strong>: <a href="https://en.wikipedia.org/wiki/Audio_frequency">Frequency</a> refers to the number of oscillations a waveform undergoes per unit time and is also measured in Hz. In the context of audio signals, different frequencies correspond to different pitches. <a href="https://en.wikipedia.org/wiki/Amplitude">Amplitude</a>, on the other hand, measures the magnitude of the oscillations and correlates with the loudness of the sound. Both frequency and amplitude are essential features that capture audio signals’ tonal and rhythmic qualities.</p></li>
@@ -307,8 +319,8 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images_4_2/time_vs_freq.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="why-not-raw-audio" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="why-not-raw-audio"><span class="header-section-number">5.3.1</span> Why Not Raw Audio?</h3>
+<section id="why-not-raw-audio" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="why-not-raw-audio"><span class="header-section-number">4.3.1</span> Why Not Raw Audio?</h3>
 <p>While using raw audio data directly for machine learning tasks may seem tempting, this approach presents several challenges that make it less suitable for building robust and efficient models.</p>
 <p>Using raw audio data for Keyword Spotting (KWS), for example, on TinyML devices poses challenges due to its high dimensionality (using a 16 kHz sampling rate), computational complexity for capturing temporal features, susceptibility to noise, and lack of semantically meaningful features, making feature extraction techniques like MFCCs a more practical choice for resource-constrained applications.</p>
 <p>Here are some additional details of the critical issues associated with using raw audio:</p>
@@ -322,10 +334,10 @@ ul.task-list li input[type="checkbox"] {
 <p>For these reasons, feature extraction techniques such as Mel-frequency Cepstral Coefficients (MFCCs), Mel-Frequency Energies (MFEs), and simple Spectograms are commonly used to transform raw audio data into a more manageable and informative format. These features capture the essential characteristics of the audio signal while reducing dimensionality and noise, facilitating more effective machine learning.</p>
 </section>
 </section>
-<section id="introduction-to-mfccs" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="introduction-to-mfccs"><span class="header-section-number">5.4</span> Introduction to MFCCs</h2>
-<section id="what-are-mfccs" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="what-are-mfccs"><span class="header-section-number">5.4.1</span> What are MFCCs?</h3>
+<section id="introduction-to-mfccs" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="introduction-to-mfccs"><span class="header-section-number">4.4</span> Introduction to MFCCs</h2>
+<section id="what-are-mfccs" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="what-are-mfccs"><span class="header-section-number">4.4.1</span> What are MFCCs?</h3>
 <p><a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">Mel-frequency Cepstral Coefficients (MFCCs)</a> are a set of features derived from the spectral content of an audio signal. They are based on human auditory perceptions and are commonly used to capture the phonetic characteristics of an audio signal. The MFCCs are computed through a multi-step process that includes pre-emphasis, framing, windowing, applying the Fast Fourier Transform (FFT) to convert the signal to the frequency domain, and finally, applying the Discrete Cosine Transform (DCT). The result is a compact representation of the original audio signal’s spectral characteristics.</p>
 <p>The image below shows the words <code>YES</code> and <code>NO</code> in their MFCC representation:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -337,8 +349,8 @@ ul.task-list li input[type="checkbox"] {
 <p>This <a href="https://youtu.be/SJo7vPgRlBQ?si=KSgzmDg8DtSVqzXp">video</a> explains the Mel Frequency Cepstral Coefficients (MFCC) and how to compute them.</p>
 </blockquote>
 </section>
-<section id="why-are-mfccs-important" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="why-are-mfccs-important"><span class="header-section-number">5.4.2</span> Why are MFCCs important?</h3>
+<section id="why-are-mfccs-important" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="why-are-mfccs-important"><span class="header-section-number">4.4.2</span> Why are MFCCs important?</h3>
 <p>MFCCs are crucial for several reasons, particularly in the context of Keyword Spotting (KWS) and TinyML:</p>
 <ul>
 <li><strong>Dimensionality Reduction</strong>: MFCCs capture essential spectral characteristics of the audio signal while significantly reducing the dimensionality of the data, making it ideal for resource-constrained TinyML applications.</li>
@@ -348,8 +360,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>In summary, MFCCs offer a balance of information richness and computational efficiency, making them popular for audio classification tasks, particularly in constrained environments like TinyML.</p>
 </section>
-<section id="computing-mfccs" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="computing-mfccs"><span class="header-section-number">5.4.3</span> Computing MFCCs</h3>
+<section id="computing-mfccs" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="computing-mfccs"><span class="header-section-number">4.4.3</span> Computing MFCCs</h3>
 <p>The computation of Mel-frequency Cepstral Coefficients (MFCCs) involves several key steps. Let’s walk through these, which are particularly important for Keyword Spotting (KWS) tasks on TinyML devices.</p>
 <ul>
 <li><p><strong>Pre-emphasis</strong>: The first step is pre-emphasis, which is applied to accentuate the high-frequency components of the audio signal and balance the frequency spectrum. This is achieved by applying a filter that amplifies the difference between consecutive samples. The formula for pre-emphasis is: y(t) = x(t) - <span class="math inline">\(\alpha\)</span> x(t-1) , where <span class="math inline">\(\alpha\)</span> is the pre-emphasis factor, typically around 0.97.</p></li>
@@ -390,18 +402,18 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="hands-on-using-python" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="hands-on-using-python"><span class="header-section-number">5.5</span> Hands-On using Python</h2>
+<section id="hands-on-using-python" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="hands-on-using-python"><span class="header-section-number">4.5</span> Hands-On using Python</h2>
 <p>Let’s apply what we discussed while working on an actual audio sample. Open the notebook on Google CoLab and extract the MLCC features on your audio samples: <a href="https://colab.research.google.com/github/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/Audio_Data_Analysis.ipynb">[Open In Colab]</a></p>
 </section>
-<section id="conclusion" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5.6</span> Conclusion</h2>
-<section id="what-feature-extraction-technique-should-we-use" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="what-feature-extraction-technique-should-we-use"><span class="header-section-number">5.6.1</span> <strong>What</strong> Feature Extraction technique <strong>should we use?</strong></h3>
+<section id="conclusion" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4.6</span> Conclusion</h2>
+<section id="what-feature-extraction-technique-should-we-use" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="what-feature-extraction-technique-should-we-use"><span class="header-section-number">4.6.1</span> <strong>What</strong> Feature Extraction technique <strong>should we use?</strong></h3>
 <p>Mel-frequency Cepstral Coefficients (MFCCs), Mel-Frequency Energies (MFEs), or Spectrogram are techniques for representing audio data, which are often helpful in different contexts.</p>
 <p>In general, MFCCs are more focused on capturing the envelope of the power spectrum, which makes them less sensitive to fine-grained spectral details but more robust to noise. This is often desirable for speech-related tasks. On the other hand, spectrograms or MFEs preserve more detailed frequency information, which can be advantageous in tasks that require discrimination based on fine-grained spectral content.</p>
-<section id="mfccs-are-particularly-strong-for" class="level4" data-number="5.6.1.1">
-<h4 data-number="5.6.1.1" class="anchored" data-anchor-id="mfccs-are-particularly-strong-for"><span class="header-section-number">5.6.1.1</span> MFCCs are particularly strong for:</h4>
+<section id="mfccs-are-particularly-strong-for" class="level4" data-number="4.6.1.1">
+<h4 data-number="4.6.1.1" class="anchored" data-anchor-id="mfccs-are-particularly-strong-for"><span class="header-section-number">4.6.1.1</span> MFCCs are particularly strong for:</h4>
 <ol type="1">
 <li><strong>Speech Recognition</strong>: MFCCs are excellent for identifying phonetic content in speech signals.</li>
 <li><strong>Speaker Identification</strong>: They can be used to distinguish between different speakers based on voice characteristics.</li>
@@ -409,8 +421,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Keyword Spotting</strong>: Especially in TinyML, where low computational complexity and small feature size are crucial.</li>
 </ol>
 </section>
-<section id="spectrograms-or-mfes-are-often-more-suitable-for" class="level4" data-number="5.6.1.2">
-<h4 data-number="5.6.1.2" class="anchored" data-anchor-id="spectrograms-or-mfes-are-often-more-suitable-for"><span class="header-section-number">5.6.1.2</span> Spectrograms or MFEs are often more suitable for:</h4>
+<section id="spectrograms-or-mfes-are-often-more-suitable-for" class="level4" data-number="4.6.1.2">
+<h4 data-number="4.6.1.2" class="anchored" data-anchor-id="spectrograms-or-mfes-are-often-more-suitable-for"><span class="header-section-number">4.6.1.2</span> Spectrograms or MFEs are often more suitable for:</h4>
 <ol type="1">
 <li><strong>Music Analysis</strong>: Spectrograms can capture harmonic and timbral structures in music, which is essential for tasks like genre classification, instrument recognition, or music transcription.</li>
 <li><strong>Environmental Sound Classification</strong>: In recognizing non-speech, environmental sounds (e.g., rain, wind, traffic), the full spectrogram can provide more discriminative features.</li>
@@ -677,12 +689,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./object_detection_fomo.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Object Detection</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Object Detection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./kws_nicla.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Keyword Spotting (KWS)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

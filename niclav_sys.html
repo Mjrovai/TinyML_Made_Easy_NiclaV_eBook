@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TinyML Made Easy - 2&nbsp; Setup Nicla Vision</title>
+<title>TinyML Made Easy - 1&nbsp; Setup Nicla Vision</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./niclav_sys.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./niclav_sys.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -195,32 +195,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./niclav_sys.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./image_classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_detection_fomo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Object Detection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Object Detection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kws_feature_eng.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kws_nicla.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Keyword Spotting (KWS)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -239,24 +251,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
-  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware"><span class="header-section-number">2.2</span> Hardware</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1.1</span> Introduction</a></li>
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware"><span class="header-section-number">1.2</span> Hardware</a>
   <ul class="collapse">
-  <li><a href="#two-parallel-cores" id="toc-two-parallel-cores" class="nav-link" data-scroll-target="#two-parallel-cores"><span class="header-section-number">2.2.1</span> Two Parallel Cores</a></li>
-  <li><a href="#memory" id="toc-memory" class="nav-link" data-scroll-target="#memory"><span class="header-section-number">2.2.2</span> Memory</a></li>
-  <li><a href="#sensors" id="toc-sensors" class="nav-link" data-scroll-target="#sensors"><span class="header-section-number">2.2.3</span> Sensors</a></li>
+  <li><a href="#two-parallel-cores" id="toc-two-parallel-cores" class="nav-link" data-scroll-target="#two-parallel-cores"><span class="header-section-number">1.2.1</span> Two Parallel Cores</a></li>
+  <li><a href="#memory" id="toc-memory" class="nav-link" data-scroll-target="#memory"><span class="header-section-number">1.2.2</span> Memory</a></li>
+  <li><a href="#sensors" id="toc-sensors" class="nav-link" data-scroll-target="#sensors"><span class="header-section-number">1.2.3</span> Sensors</a></li>
   </ul></li>
-  <li><a href="#arduino-ide-installation" id="toc-arduino-ide-installation" class="nav-link" data-scroll-target="#arduino-ide-installation"><span class="header-section-number">2.3</span> Arduino IDE Installation</a>
+  <li><a href="#arduino-ide-installation" id="toc-arduino-ide-installation" class="nav-link" data-scroll-target="#arduino-ide-installation"><span class="header-section-number">1.3</span> Arduino IDE Installation</a>
   <ul class="collapse">
-  <li><a href="#testing-the-microphone" id="toc-testing-the-microphone" class="nav-link" data-scroll-target="#testing-the-microphone"><span class="header-section-number">2.3.1</span> Testing the Microphone</a></li>
-  <li><a href="#testing-the-imu" id="toc-testing-the-imu" class="nav-link" data-scroll-target="#testing-the-imu"><span class="header-section-number">2.3.2</span> Testing the IMU</a></li>
-  <li><a href="#testing-the-tof-time-of-flight-sensor" id="toc-testing-the-tof-time-of-flight-sensor" class="nav-link" data-scroll-target="#testing-the-tof-time-of-flight-sensor"><span class="header-section-number">2.3.3</span> Testing the ToF (Time of Flight) Sensor</a></li>
-  <li><a href="#testing-the-camera" id="toc-testing-the-camera" class="nav-link" data-scroll-target="#testing-the-camera"><span class="header-section-number">2.3.4</span> Testing the Camera</a></li>
+  <li><a href="#testing-the-microphone" id="toc-testing-the-microphone" class="nav-link" data-scroll-target="#testing-the-microphone"><span class="header-section-number">1.3.1</span> Testing the Microphone</a></li>
+  <li><a href="#testing-the-imu" id="toc-testing-the-imu" class="nav-link" data-scroll-target="#testing-the-imu"><span class="header-section-number">1.3.2</span> Testing the IMU</a></li>
+  <li><a href="#testing-the-tof-time-of-flight-sensor" id="toc-testing-the-tof-time-of-flight-sensor" class="nav-link" data-scroll-target="#testing-the-tof-time-of-flight-sensor"><span class="header-section-number">1.3.3</span> Testing the ToF (Time of Flight) Sensor</a></li>
+  <li><a href="#testing-the-camera" id="toc-testing-the-camera" class="nav-link" data-scroll-target="#testing-the-camera"><span class="header-section-number">1.3.4</span> Testing the Camera</a></li>
   </ul></li>
-  <li><a href="#installing-the-openmv-ide" id="toc-installing-the-openmv-ide" class="nav-link" data-scroll-target="#installing-the-openmv-ide"><span class="header-section-number">2.4</span> Installing the OpenMV IDE</a></li>
-  <li><a href="#connecting-the-nicla-vision-to-edge-impulse-studio" id="toc-connecting-the-nicla-vision-to-edge-impulse-studio" class="nav-link" data-scroll-target="#connecting-the-nicla-vision-to-edge-impulse-studio"><span class="header-section-number">2.5</span> Connecting the Nicla Vision to Edge Impulse Studio</a></li>
-  <li><a href="#expanding-the-nicla-vision-board-optional" id="toc-expanding-the-nicla-vision-board-optional" class="nav-link" data-scroll-target="#expanding-the-nicla-vision-board-optional"><span class="header-section-number">2.6</span> Expanding the Nicla Vision Board (optional)</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">2.7</span> Conclusion</a></li>
+  <li><a href="#installing-the-openmv-ide" id="toc-installing-the-openmv-ide" class="nav-link" data-scroll-target="#installing-the-openmv-ide"><span class="header-section-number">1.4</span> Installing the OpenMV IDE</a></li>
+  <li><a href="#connecting-the-nicla-vision-to-edge-impulse-studio" id="toc-connecting-the-nicla-vision-to-edge-impulse-studio" class="nav-link" data-scroll-target="#connecting-the-nicla-vision-to-edge-impulse-studio"><span class="header-section-number">1.5</span> Connecting the Nicla Vision to Edge Impulse Studio</a></li>
+  <li><a href="#expanding-the-nicla-vision-board-optional" id="toc-expanding-the-nicla-vision-board-optional" class="nav-link" data-scroll-target="#expanding-the-nicla-vision-board-optional"><span class="header-section-number">1.6</span> Expanding the Nicla Vision Board (optional)</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">1.7</span> Conclusion</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/edit/main/niclav_sys.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/blob/main/niclav_sys.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -265,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setup Nicla Vision</span></h1>
 </div>
 
 
@@ -285,8 +297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/nicla_sys_ini.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="introduction" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
 <p>The <a href="https://docs.arduino.cc/hardware/nicla-vision">Arduino Nicla Vision</a> (sometimes called <em>NiclaV</em>) is a development board that includes two processors that can run tasks in parallel. It is part of a family of development boards with the same form factor but designed for specific tasks, such as the <a href="https://www.bosch-sensortec.com/software-tools/tools/arduino-nicla-sense-me/">Nicla Sense ME</a> and the <a href="https://store-usa.arduino.cc/products/nicla-voice?_gl=1*l3abc6*_ga*MTQ3NzE4Mjk4Mi4xNjQwMDIwOTk5*_ga_NEXN8H46L5*MTY5NjM0Mzk1My4xMDIuMS4xNjk2MzQ0MjQ1LjAuMC4w">Nicla Voice</a>. The <em>Niclas</em> can efficiently run processes created with TensorFlow™ Lite. For example, one of the cores of the NiclaV runs a computer vision algorithm on the fly (inference), while the other executes low-level operations like controlling a motor and communicating or acting as a user interface. The onboard wireless module allows the management of WiFi and Bluetooth Low Energy (BLE) connectivity simultaneously.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -294,10 +306,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="hardware" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="hardware"><span class="header-section-number">2.2</span> Hardware</h2>
-<section id="two-parallel-cores" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="two-parallel-cores"><span class="header-section-number">2.2.1</span> Two Parallel Cores</h3>
+<section id="hardware" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="hardware"><span class="header-section-number">1.2</span> Hardware</h2>
+<section id="two-parallel-cores" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="two-parallel-cores"><span class="header-section-number">1.2.1</span> Two Parallel Cores</h3>
 <p>The central processor is the dual-core <a href="https://content.arduino.cc/assets/Arduino-Portenta-H7_Datasheet_stm32h747xi.pdf?_gl=1*6quciu*_ga*MTQ3NzE4Mjk4Mi4xNjQwMDIwOTk5*_ga_NEXN8H46L5*MTY0NzQ0NTg1My4xMS4xLjE2NDc0NDYzMzkuMA..">STM32H747,</a> including a Cortex® M7 at 480 MHz and a Cortex® M4 at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that seamlessly allows calling functions on the other processor. Both processors share all the on-chip peripherals and can run:</p>
 <ul>
 <li><p>Arduino sketches on top of the Arm® Mbed™ OS</p></li>
@@ -311,12 +323,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="memory" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="memory"><span class="header-section-number">2.2.2</span> Memory</h3>
+<section id="memory" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="memory"><span class="header-section-number">1.2.2</span> Memory</h3>
 <p>Memory is crucial for embedded machine learning projects. The NiclaV board can host up to 16 MB of QSPI Flash for storage. However, it is essential to consider that the MCU SRAM is the one to be used with machine learning inferences; the STM32H747 is only 1MB, shared by both processors. This MCU also has incorporated 2MB of FLASH, mainly for code storage.</p>
 </section>
-<section id="sensors" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="sensors"><span class="header-section-number">2.2.3</span> Sensors</h3>
+<section id="sensors" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="sensors"><span class="header-section-number">1.2.3</span> Sensors</h3>
 <ul>
 <li><p><strong>Camera</strong>: A GC2145 2 MP Color CMOS Camera.</p></li>
 <li><p><strong>Microphone</strong>: The <code>MP34DT05</code> is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and the IC interface.</p></li>
@@ -325,8 +337,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="arduino-ide-installation" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="arduino-ide-installation"><span class="header-section-number">2.3</span> Arduino IDE Installation</h2>
+<section id="arduino-ide-installation" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="arduino-ide-installation"><span class="header-section-number">1.3</span> Arduino IDE Installation</h2>
 <p>Start connecting the board (<em>microUSB</em>) to your computer:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -343,8 +355,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>Open the Blink sketch on Examples/Basic and run it using the IDE Upload button. You should see the Built-in LED (green RGB) blinking, which means the Nicla board is correctly installed and functional!</p>
 </blockquote>
-<section id="testing-the-microphone" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="testing-the-microphone"><span class="header-section-number">2.3.1</span> Testing the Microphone</h3>
+<section id="testing-the-microphone" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="testing-the-microphone"><span class="header-section-number">1.3.1</span> Testing the Microphone</h3>
 <p>On Arduino IDE, go to <code>Examples &gt; PDM &gt; PDMSerialPlotter</code>, open and run the sketch. Open the Plotter and see the audio representation from the microphone:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -355,8 +367,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Vary the frequency of the sound you generate and confirm that the mic is working correctly.</p>
 </blockquote>
 </section>
-<section id="testing-the-imu" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="testing-the-imu"><span class="header-section-number">2.3.2</span> Testing the IMU</h3>
+<section id="testing-the-imu" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="testing-the-imu"><span class="header-section-number">1.3.2</span> Testing the IMU</h3>
 <p>Before testing the IMU, it will be necessary to install the LSM6DSOX library. For that, go to Library Manager and look for LSM6DSOX. Install the library provided by Arduino:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -370,8 +382,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="testing-the-tof-time-of-flight-sensor" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="testing-the-tof-time-of-flight-sensor"><span class="header-section-number">2.3.3</span> Testing the ToF (Time of Flight) Sensor</h3>
+<section id="testing-the-tof-time-of-flight-sensor" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="testing-the-tof-time-of-flight-sensor"><span class="header-section-number">1.3.3</span> Testing the ToF (Time of Flight) Sensor</h3>
 <p>As we did with IMU, it is necessary to install the VL53L1X ToF library. For that, go to Library Manager and look for VL53L1X. Install the library provided by Pololu:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -391,14 +403,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="testing-the-camera" class="level3" data-number="2.3.4">
-<h3 data-number="2.3.4" class="anchored" data-anchor-id="testing-the-camera"><span class="header-section-number">2.3.4</span> Testing the Camera</h3>
+<section id="testing-the-camera" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="testing-the-camera"><span class="header-section-number">1.3.4</span> Testing the Camera</h3>
 <p>We can also test the camera using, for example, the code provided on <code>Examples &gt; Camera &gt; CameraCaptureRawBytes</code>. We cannot see the image directly, but it is possible to get the raw image data generated by the camera.</p>
 <p>Anyway, the best test with the camera is to see a live image. For that, we will use another IDE, the OpenMV.</p>
 </section>
 </section>
-<section id="installing-the-openmv-ide" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="installing-the-openmv-ide"><span class="header-section-number">2.4</span> Installing the OpenMV IDE</h2>
+<section id="installing-the-openmv-ide" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="installing-the-openmv-ide"><span class="header-section-number">1.4</span> Installing the OpenMV IDE</h2>
 <p>OpenMV IDE is the premier integrated development environment with OpenMV Cameras like the one on the Nicla Vision. It features a powerful text editor, debug terminal, and frame buffer viewer with a histogram display. We will use MicroPython to program the camera.</p>
 <p>Go to the <a href="https://openmv.io/pages/download">OpenMV IDE page</a>, download the correct version for your Operating System, and follow the instructions for its installation on your computer.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -499,8 +511,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p>In the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/tree/main/Micropython">GitHub</a>, You can find other Python scripts. Try to test the onboard sensors.</p>
 </section>
-<section id="connecting-the-nicla-vision-to-edge-impulse-studio" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="connecting-the-nicla-vision-to-edge-impulse-studio"><span class="header-section-number">2.5</span> Connecting the Nicla Vision to Edge Impulse Studio</h2>
+<section id="connecting-the-nicla-vision-to-edge-impulse-studio" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="connecting-the-nicla-vision-to-edge-impulse-studio"><span class="header-section-number">1.5</span> Connecting the Nicla Vision to Edge Impulse Studio</h2>
 <p>We will need the Edge Impulse Studio later in other exercises. <a href="https://www.edgeimpulse.com/">Edge Impulse</a> is a leading development platform for machine learning on edge devices.</p>
 <p>Edge Impulse officially supports the Nicla Vision. So, for starting, please create a new project on the Studio and connect the Nicla to it. For that, follow the steps:</p>
 <ul>
@@ -542,8 +554,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>And so on. You can also test an external sensor connected to the <code>ADC</code> (Nicla pin 0) and the other onboard sensors, such as the microphone and the ToF.</p>
 </section>
-<section id="expanding-the-nicla-vision-board-optional" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="expanding-the-nicla-vision-board-optional"><span class="header-section-number">2.6</span> Expanding the Nicla Vision Board (optional)</h2>
+<section id="expanding-the-nicla-vision-board-optional" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="expanding-the-nicla-vision-board-optional"><span class="header-section-number">1.6</span> Expanding the Nicla Vision Board (optional)</h2>
 <p>A last item to be explored is that sometimes, during prototyping, it is essential to experiment with external sensors and devices, and an excellent expansion to the Nicla is the <a href="https://store-usa.arduino.cc/products/arduino-mkr-connector-carrier-grove-compatible">Arduino MKR Connector Carrier (Grove compatible)</a>.</p>
 <p>The shield has 14 Grove connectors: five single analog inputs (A0-A5), one double analog input (A5/A6), five single digital I/Os (D0-D4), one double digital I/O (D5/D6), one I2C (TWI), and one UART (Serial). All connectors are 5V compatible.</p>
 <blockquote class="blockquote">
@@ -625,8 +637,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note that the above scripts (<a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/tree/main/Micropython"><u>downloaded from Github</u></a>) introduce only how to connect external devices with the Nicla Vision board using MicroPython.</p>
 </blockquote>
 </section>
-<section id="conclusion" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">2.7</span> Conclusion</h2>
+<section id="conclusion" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">1.7</span> Conclusion</h2>
 <p>The Arduino Nicla Vision is an excellent <em>tiny device</em> for industrial and professional uses! However, it is powerful, trustworthy, low power, and has suitable sensors for the most common embedded machine learning applications such as vision, movement, sensor fusion, and sound.</p>
 <blockquote class="blockquote">
 <p>On the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/tree/main">GitHub repository,</a> you will find the last version of all the codes used or commented on in this hands-on exercise.</p>
@@ -888,12 +900,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./image_classification.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">CV on Nicla Vision</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

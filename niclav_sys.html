@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kws_feature_eng.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Audio Feature Engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <a href="https://docs.arduino.cc/hardware/nicla-vision">Arduino Nicla Vision</a> (sometimes called <em>NiclaV</em>) is a development board that includes two processors that can run tasks in parallel. It is part of a family of development boards with the same form factor but designed for specific tasks, such as the <a href="https://www.bosch-sensortec.com/software-tools/tools/arduino-nicla-sense-me/">Nicla Sense ME</a> and the <a href="https://store-usa.arduino.cc/products/nicla-voice?_gl=1*l3abc6*_ga*MTQ3NzE4Mjk4Mi4xNjQwMDIwOTk5*_ga_NEXN8H46L5*MTY5NjM0Mzk1My4xMDIuMS4xNjk2MzQ0MjQ1LjAuMC4w">Nicla Voice</a>. The <em>Niclas</em> can efficiently run processes created with TensorFlow™ Lite. For example, one of the cores of the NiclaV runs a computer vision algorithm on the fly (inference), while the other executes low-level operations like controlling a motor and communicating or acting as a user interface. The onboard wireless module allows the management of WiFi and Bluetooth Low Energy (BLE) connectivity simultaneously.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image29.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image29.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 </section>
@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image22.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image22.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 </section>
@@ -342,13 +342,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Start connecting the board (<em>microUSB</em>) to your computer:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image14.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image14.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Install the Mbed OS core for Nicla boards in the Arduino IDE. Having the IDE open, navigate to <code>Tools &gt; Board &gt; Board Manager</code>, look for Arduino Nicla Vision on the search window, and install the board.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image2.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image2.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Next, go to <code>Tools &gt; Board &gt; Arduino Mbed OS Nicla Boards</code> and select <code>Arduino Nicla Vision</code>. Having your board connected to the USB, you should see the Nicla on Port and select it.</p>
@@ -360,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>On Arduino IDE, go to <code>Examples &gt; PDM &gt; PDMSerialPlotter</code>, open and run the sketch. Open the Plotter and see the audio representation from the microphone:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image9.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image9.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -372,13 +372,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Before testing the IMU, it will be necessary to install the LSM6DSOX library. For that, go to Library Manager and look for LSM6DSOX. Install the library provided by Arduino:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image19.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image19.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Next, go to <code>Examples &gt; Arduino_LSM6DSOX &gt; SimpleAccelerometer</code> and run the accelerometer test (you can also run Gyro and board temperature):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image28.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image28.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 </section>
@@ -387,19 +387,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As we did with IMU, it is necessary to install the VL53L1X ToF library. For that, go to Library Manager and look for VL53L1X. Install the library provided by Pololu:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image15.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image15.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Next, run the sketch <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/Micropython/distance_image_meter.py">proximity_detection.ino</a>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image12.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image12.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>On the Serial Monitor, you will see the distance from the camera to an object in front of it (max of 4m).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image13.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image13.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 </section>
@@ -415,13 +415,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Go to the <a href="https://openmv.io/pages/download">OpenMV IDE page</a>, download the correct version for your Operating System, and follow the instructions for its installation on your computer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image21.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image21.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>The IDE should open, defaulting to the helloworld_1.py code on its Code Area. If not, you can open it from <code>Files &gt; Examples &gt; HelloWord &gt; helloword.py</code></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image7.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image7.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Any messages sent through a serial connection (using print() or error messages) will be displayed on the <strong>Serial Terminal</strong> during run time. The image captured by a camera will be displayed in the <strong>Camera Viewer</strong> Area (or Frame Buffer) and in the Histogram area, immediately below the Camera Viewer.</p>
@@ -432,44 +432,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>After updating the bootloader, put the Nicla Vision in bootloader mode by double-pressing the reset button on the board. The built-in green LED will start fading in and out. Now return to the OpenMV IDE and click on the connect icon (Left ToolBar):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image23.jpg" class="img-fluid figure-img" style="width:4.01042in"></p>
+<p><img src="images/imgs_niclav_sys/image23.jpg" class="img-fluid figure-img" style="width:4.01042in"></p>
 </figure>
 </div>
 <p>A pop-up will tell you that a board in DFU mode was detected and ask how you would like to proceed. First, select <code>Install the latest release firmware (vX.Y.Z)</code>. This action will install the latest OpenMV firmware on the Nicla Vision.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image10.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image10.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>You can leave the option <code>Erase internal file system</code> unselected and click <code>[OK]</code>.</p>
 <p>Nicla’s green LED will start flashing while the OpenMV firmware is uploaded to the board, and a terminal window will then open, showing the flashing progress.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image5.png" class="img-fluid figure-img" style="width:4.85417in"></p>
+<p><img src="images/imgs_niclav_sys/image5.png" class="img-fluid figure-img" style="width:4.85417in"></p>
 </figure>
 </div>
 <p>Wait until the green LED stops flashing and fading. When the process ends, you will see a message saying, “DFU firmware update complete!”. Press <code>[OK]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image1.png" class="img-fluid figure-img" style="width:3.875in"></p>
+<p><img src="images/imgs_niclav_sys/image1.png" class="img-fluid figure-img" style="width:3.875in"></p>
 </figure>
 </div>
 <p>A green play button appears when the Nicla Vison connects to the Tool Bar.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image18.jpg" class="img-fluid figure-img" style="width:4.79167in"></p>
+<p><img src="images/imgs_niclav_sys/image18.jpg" class="img-fluid figure-img" style="width:4.79167in"></p>
 </figure>
 </div>
 <p>Also, note that a drive named “NO NAME” will appear on your computer.:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image3.png" class="img-fluid figure-img" style="width:6.44792in"></p>
+<p><img src="images/imgs_niclav_sys/image3.png" class="img-fluid figure-img" style="width:6.44792in"></p>
 </figure>
 </div>
 <p>Every time you press the <code>[RESET]</code> button on the board, it automatically executes the <em>main.py</em> script stored on it. You can load the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/Micropython/main.py">main.py</a> code on the IDE (<code>File &gt; Open File...</code>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image16.png" class="img-fluid figure-img" style="width:4.23958in"></p>
+<p><img src="images/imgs_niclav_sys/image16.png" class="img-fluid figure-img" style="width:4.23958in"></p>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -479,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When clicking the green play button, the MicroPython script (<em>hellowolrd.py</em>) on the Code Area will be uploaded and run on the Nicla Vision. On-Camera Viewer, you will start to see the video streaming. The Serial Monitor will show us the FPS (Frames per second), which should be around 14fps.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image6.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image6.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Here is the <a href="http://helloworld.py/">helloworld.py</a> script:</p>
@@ -521,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image17.png" class="img-fluid figure-img" style="width:4.41667in"></p>
+<p><img src="images/imgs_niclav_sys/image17.png" class="img-fluid figure-img" style="width:4.41667in"></p>
 </figure>
 </div>
 <ul>
@@ -531,25 +531,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Go to your project on the Studio, and on the <code>Data Acquisition tab</code>, select <code>WebUSB</code> (1). A window will pop up; choose the option that shows that the <code>Nicla is paired</code> (2) and press <code>[Connect]</code> (3).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image27.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image27.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>In the <em>Collect Data</em> section on the <code>Data Acquisition</code> tab, you can choose which sensor data to pick.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image25.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image25.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>For example. <code>IMU data</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image8.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image8.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Or Image (<code>Camera</code>):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image4.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image4.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>And so on. You can also test an external sensor connected to the <code>ADC</code> (Nicla pin 0) and the other onboard sensors, such as the microphone and the ToF.</p>
@@ -563,19 +563,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image20.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image20.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>This shield is MKR compatible and can be used with the Nicla Vision and Portenta.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image26.jpg" class="img-fluid figure-img" style="width:4.34375in"></p>
+<p><img src="images/imgs_niclav_sys/image26.jpg" class="img-fluid figure-img" style="width:4.34375in"></p>
 </figure>
 </div>
 <p>For example, suppose that on a TinyML project, you want to send inference results using a LoRaWAN device and add information about local luminosity. Often, with offline operations, a local low-power display such as an OLED is advised. This setup can be seen here:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image11.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_niclav_sys/image11.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>The <a href="https://wiki.seeedstudio.com/Grove-Light_Sensor/">Grove Light Sensor</a> would be connected to one of the single Analog pins (A0/PC4), the <a href="https://wiki.seeedstudio.com/Grove_LoRa_E5_New_Version/">LoRaWAN device</a> to the UART, and the <a href="https://arduino.cl/producto/display-oled-grove/">OLED</a> to the I2C connector.</p>
@@ -599,7 +599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To verify that the UART is working, you should, for example, connect another device as the Arduino UNO, displaying “Hello Word” on the Serial Monitor. Here is the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/Arduino-IDE/teste_uart_UNO/teste_uart_UNO.ino">code</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images_2/media/image24.jpg" class="img-fluid figure-img" style="width:2.8125in"></p>
+<p><img src="images/imgs_niclav_sys/image24.jpg" class="img-fluid figure-img" style="width:2.8125in"></p>
 </figure>
 </div>
 <p>Below is the <em>Hello World code</em> to be used with the I2C OLED. The MicroPython SSD1306 OLED driver (ssd1306.py), created by Adafruit, should also be uploaded to the Nicla (the ssd1306.py script can be found in <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/Micropython/ssd1306.py">GitHub</a>).</p>

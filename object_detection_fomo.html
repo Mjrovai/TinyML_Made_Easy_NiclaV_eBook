@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kws_feature_eng.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Audio Feature Engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -310,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is a continuation of <strong>CV on Nicla Vision</strong>, now exploring <strong>Object Detection</strong> on microcontrollers.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/cv_obj_detect.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/cv_obj_detect.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <section id="object-detection-versus-image-classification" class="level3" data-number="3.1.1">
@@ -318,19 +318,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The main task with Image Classification models is to produce a list of the most probable object categories present on an image, for example, to identify a tabby cat just after his dinner:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_1.png" class="img-fluid figure-img"></p>
+<p><img src="images/imgs_object_detection_fomo/img_1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 <p>But what happens when the cat jumps near the wine glass? The model still only recognizes the predominant category on the image, the tabby cat:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_2.png" class="img-fluid figure-img"></p>
+<p><img src="images/imgs_object_detection_fomo/img_2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 <p>And what happens if there is not a dominant category on the image?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_3.png" class="img-fluid figure-img"></p>
+<p><img src="images/imgs_object_detection_fomo/img_3.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 <p>The model identifies the above image completely wrong as an “ashcan,” possibly due to the color tonalities.</p>
@@ -341,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As we can imagine, such models are much more complicated and bigger, for example, the <strong>MobileNetV2 SSD FPN-Lite 320x320, trained with the COCO dataset.</strong> This pre-trained object detection model is designed to locate up to 10 objects within an image, outputting a bounding box for each object detected. The below image is the result of such a model running on a Raspberry Pi:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_4.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_4.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Those models used for Object detection (such as the MobileNet SSD or YOLO) usually have several MB in size, which is OK for use with Raspberry Pi but unsuitable for use with embedded devices, where the RAM usually is lower than 1M Bytes.</p>
@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>All Machine Learning projects need to start with a detailed goal. Let’s assume we are in an industrial facility and must sort and count <strong>wheels</strong> and special <strong>boxes</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/proj_goal.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/proj_goal.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>In other words, we should perform a multi-label classification, where each image can have three classes:</p>
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here are some not labeled image samples that we should use to detect the objects (wheels and boxes):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/samples.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/samples.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>We are interested in which object is in the image, its location (centroid), and how many we can find on it. The object’s size is not detected with FOMO, as with MobileNet SSD or YOLO, where the Bounding Box is one of the model outputs.</p>
@@ -383,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>First, create in your computer a folder where your data will be saved, for example, “data.” Next, on the OpenMV IDE, go to Tools &gt; Dataset Editor and select New Dataset to start the dataset collection:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/data_folder.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/data_folder.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Edge impulse suggests that the objects should be of similar size and not overlapping for better performance. This is OK in an industrial facility, where the camera should be fixed, keeping the same distance from the objects to be detected. Despite that, we will also try with mixed sizes and positions to see the result.</p>
@@ -393,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Connect the Nicla Vision to the OpenMV IDE and run the <code>dataset_capture_script.py</code>. Clicking on the Capture Image button will start capturing images:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_5.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_5.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>We suggest around 50 images mixing the objects and varying the number of each appearing on the scene. Try to capture different angles, backgrounds, and light conditions.</p>
@@ -410,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Go to <a href="https://www.edgeimpulse.com/">Edge Impulse Studio,</a> enter your credentials at <strong>Login</strong> (or create an account), and start a new project.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_6.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_6.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -419,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>On your Project Dashboard, go down and on <strong>Project info</strong> and select <strong>Bounding boxes (object detection)</strong> and Nicla Vision as your Target Device:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_7.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_7.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 </section>
@@ -428,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>On Studio, go to the <code>Data acquisition</code> tab, and on the <code>UPLOAD DATA</code> section, upload from your computer files captured.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_8.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_8.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -436,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_9.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_9.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>All the not labeled images (51) were uploaded but they still need to be labeled appropriately before using them as a dataset in the project. The Studio has a tool for that purpose, which you can find in the link <code>Labeling queue (51)</code>.</p>
@@ -458,25 +458,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Starting with the first image of your unlabeled data, use your mouse to drag a box around an object to add a label. Then click <strong>Save labels</strong> to advance to the next item.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_10.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_10.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Continue with this process until the queue is empty. At the end, all images should have the objects labeled as those samples below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_11.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_11.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Next, review the labeled samples on the <code>Data acquisition</code> tab. If one of the labels was wrong, you can edit it using the <em><code>three dots</code></em> menu after the sample name:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_12.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_12.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>You will be guided to replace the wrong label, correcting the dataset.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_13.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_13.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 </section>
@@ -490,7 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_14.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_14.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <section id="preprocessing-all-dataset" class="level3" data-number="3.5.1">
@@ -498,13 +498,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this section, select <strong>Color depth</strong> as <code>Grayscale</code>, which is suitable for use with FOMO models and Save <code>parameters</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_15.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_15.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>The Studio moves automatically to the next section, <code>Generate features</code>, where all samples will be pre-processed, resulting in a dataset with individual 96x96x1 images or 9,216 features.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_16.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_16.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>The feature explorer shows that all samples evidence a good separation after the feature generation.</p>
@@ -521,13 +521,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>FOMO takes the image in grayscale and divides it into blocks of pixels using a factor of 8. For the input of 96x96, the grid would be 12x12 (96/8=12). Next, FOMO will run a classifier through each pixel block to calculate the probability that there is a box or a wheel in each of them and, subsequently, determine the regions which have the highest probability of containing the object (If a pixel block has no objects, it will be classified as <em>background</em>). From the overlap of the final region, the FOMO provides the coordinates (related to the image dimensions) of the centroid of this region.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_17.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_17.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>For training, we should select a pre-trained model. Let’s use the <strong><code>FOMO (Faster Objects, More Objects) MobileNetV2 0.35</code>`.</strong> This model uses around 250KB RAM and 80KB of ROM (Flash), which suits well with our board since it has 1MB of RAM and ROM.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_18.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_18.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Regarding the training hyper-parameters, the model will be trained with:</p>
@@ -543,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_19.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_19.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -568,13 +568,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Go to <code>Live classification</code> section at EI Studio, and using <em>webUSB,</em> connect your Nicla Vision:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_20.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_20.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Once connected, you can use the Nicla to capture actual images to be tested by the trained model on Edge Impulse Studio.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_21.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_21.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>One thing to be noted is that the model can produce false positives and negatives. This can be minimized by defining a proper <code>Confidence Threshold</code> (use the <code>Three dots</code> menu for the set-up). Try with 0.8 or more.</p>
@@ -585,25 +585,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Select OpenMV Firmware on the Deploy Tab and press [Build].</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_22.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_22.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>When you try to connect the Nicla with the OpenMV IDE again, it will try to update its FW. Choose the option <code>Load a specific firmware</code> instead.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_24.png" class="img-fluid figure-img"></p>
+<p><img src="images/imgs_object_detection_fomo/img_24.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 <p>You will find a ZIP file on your computer from the Studio. Open it:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_23.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_23.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>Load the .bin file to your board:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_25.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_25.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>After the download is finished, a pop-up message will be displayed. <code>Press OK</code>, and open the script <strong>ei_object_detection.py</strong> downloaded from the Studio.</p>
@@ -641,7 +641,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Keep the remaining code as it is and press the <code>green Play button</code> to run the code:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_26.png" class="img-fluid figure-img" style="width:6.5in"></p>
+<p><img src="images/imgs_object_detection_fomo/img_26.png" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <p>On the camera view, we can see the objects with their centroids marked with 12 pixel-fixed circles (each circle has a distinct color, depending on its class). On the Serial Terminal, the model shows the labels detected and their position on the image window (240X240).</p>
@@ -650,7 +650,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_27.jpg" class="img-fluid figure-img" width="624"></p>
+<p><img src="images/imgs_object_detection_fomo/img_27.jpg" class="img-fluid figure-img" width="624"></p>
 </figure>
 </div>
 <p>Note that the frames per second rate is around 8 fps (similar to what we got with the Image Classification project). This happens because FOMO is cleverly built over a CNN model, not with an object detection model like the SSD MobileNet. For example, when running a MobileNetV2 SSD FPN-Lite 320x320 model on a Raspberry Pi 4, the latency is around 5 times higher (around 1.5 fps)</p>
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Multiple possibilities exist for exploring object detection (and, more precisely, counting them) on embedded devices, for example, to explore the Nicla doing sensor fusion (camera + microphone) and object detection. This can be very useful on projects involving bees, for example.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images_4_1/img_28.jpg" class="img-fluid figure-img" width="624"></p>
+<p><img src="images/imgs_object_detection_fomo/img_28.jpg" class="img-fluid figure-img" width="624"></p>
 </figure>
 </div>
 
@@ -930,7 +930,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./kws_feature_eng.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Feature Engineering for Audio Classification</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Audio Feature Engineering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

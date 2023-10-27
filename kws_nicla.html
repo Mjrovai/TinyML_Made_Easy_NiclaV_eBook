@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#live-classification" id="toc-live-classification" class="nav-link" data-scroll-target="#live-classification"><span class="header-section-number">5.7.1</span> Live Classification</a></li>
   </ul></li>
   <li><a href="#deploy-and-inference" id="toc-deploy-and-inference" class="nav-link" data-scroll-target="#deploy-and-inference"><span class="header-section-number">5.8</span> Deploy and Inference</a></li>
-  <li><a href="#postprocessing" id="toc-postprocessing" class="nav-link" data-scroll-target="#postprocessing"><span class="header-section-number">5.9</span> Postprocessing</a></li>
+  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing"><span class="header-section-number">5.9</span> Post-processing</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5.10</span> Conclusion</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/edit/main/kws_nicla.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/blob/main/kws_nicla.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -445,8 +445,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Once inside the tool, split the data into 1-second (1000 ms) records. If necessary, add or remove segments. This procedure should be repeated for all new samples.</p>
 </section>
-<section id="using-a-smartphone-and-the-eis" class="level4" data-number="5.4.2.2">
-<h4 data-number="5.4.2.2" class="anchored" data-anchor-id="using-a-smartphone-and-the-eis"><span class="header-section-number">5.4.2.2</span> Using a smartphone and the EIS</h4>
+<section id="using-a-smartphone-and-the-ei-studio" class="level4" data-number="5.4.2.2">
+<h4 data-number="5.4.2.2" class="anchored" data-anchor-id="using-a-smartphone-and-the-ei-studio"><span class="header-section-number">5.4.2.2</span> Using a smartphone and the EI Studio</h4>
 <p>You can also use your PC or smartphone to capture audio data, using a sampling frequency of 16KHz and a bit depth of 16.</p>
 <p>Go to <code>Devices</code>, scan the <code>QR Code</code> using your phone, and click on the link. A data Collection app will appear in your browser. Select <code>Collecting Audio</code>, and define your <code>Label</code>, data capture <code>Length,</code> and <code>Category</code>.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="going-under-the-hood" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="going-under-the-hood"><span class="header-section-number">5.5.3</span> Going under the hood</h3>
-<p>To understand better how the raw sound is preprocessed, look at the <em>Feature Engineering for Audio Classification</em> chapter. You can play with the MFCC features generation by downloading this <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/KWS_MFCC_Analysis.ipynb">notebook</a> on GitHub or <a href="https://colab.research.google.com/github/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/KWS_MFCC_Analysis.ipynb">[Opening it In Colab]</a></p>
+<p>To understand better how the raw sound is preprocessed, look at the <em>Feature Engineering for Audio Classification</em> chapter. You can play with the MFCC features generation by downloading this <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/KWS_MFCC_Analysis.ipynb">notebook</a> from GitHub or <a href="https://colab.research.google.com/github/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/KWS_MFCC_Analysis.ipynb">[Opening it In Colab]</a></p>
 </section>
 </section>
 <section id="model-design-and-training" class="level2" data-number="5.6">
@@ -530,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_kws_nicla/train_errors.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>Listen to the samples that went wrong. For example, for <code>yes</code>, most of the mistakes were related to a yes pronunced as “yeh”. You can acquire additional samples and then retrain your model.</p>
+<p>Listen to the samples that went wrong. For example, for <code>yes</code>, most of the mistakes were related to a yes pronounced as “yeh”. You can acquire additional samples and then retrain your model.</p>
 <section id="going-under-the-hood-1" class="level3" data-number="5.6.1">
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="going-under-the-hood-1"><span class="header-section-number">5.6.1</span> Going under the hood</h3>
 <p>If you want to understand what is happening “under the hood,” you can download the pre-processed dataset (<code>MFCC training data</code>) from the <code>Dashboard</code> tab and run this <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/KWS_CNN_training.ipynb">Jupyter Notebook</a>, playing with the code or <a href="https://colab.research.google.com/github/Mjrovai/Arduino_Nicla_Vision/blob/main/KWS/KWS_CNN_training.ipynb">[Opening it In Colab]</a>. For example, you can analyze the accuracy by each epoch:</p>
@@ -549,16 +549,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_kws_nicla/test.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>Inspecting the F1 score, we can see that for YES we got 0.90, an excellent result since we expect to use this keyword as the primary “trigger” our KWS project. The worst result (0.70) is for UNKNOWN, which is OK.</p>
-<p>For NO, we got 0.72, which was expected, but to improve this result we can move the samples that were not correctly classified to the training dataset, and then repeat the training process.</p>
+<p>Inspecting the F1 score, we can see that for YES, we got 0.90, an excellent result since we expect to use this keyword as the primary “trigger” for our KWS project. The worst result (0.70) is for UNKNOWN, which is OK.</p>
+<p>For NO, we got 0.72, which was expected, but to improve this result, we can move the samples that were not correctly classified to the training dataset and then repeat the training process.</p>
 <section id="live-classification" class="level3" data-number="5.7.1">
 <h3 data-number="5.7.1" class="anchored" data-anchor-id="live-classification"><span class="header-section-number">5.7.1</span> Live Classification</h3>
-<p>We can proceed to the next step of the project but also consider that it is possible to perform <code>Live Classification</code> using the NiclaV or a smartphone to capture live samples, testing the trained model before deployment on our device.</p>
+<p>We can proceed to the project’s next step but also consider that it is possible to perform <code>Live Classification</code> using the NiclaV or a smartphone to capture live samples, testing the trained model before deployment on our device.</p>
 </section>
 </section>
 <section id="deploy-and-inference" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="deploy-and-inference"><span class="header-section-number">5.8</span> Deploy and Inference</h2>
-<p>The EIS will package all the needed libraries, preprocessing functions, and trained models, downloading them to your computer. Go to the <code>Deployment</code> section, select the option <code>Arduino Library</code>, and at the bottom, choose <code>Quantized (Int8)</code> and press the button <code>Build</code>.</p>
+<p>The EIS will package all the needed libraries, preprocessing functions, and trained models, downloading them to your computer. Go to the <code>Deployment</code> section, select <code>Arduino Library</code>, and at the bottom, choose <code>Quantized (Int8)</code> and press <code>Build</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_kws_nicla/deploy.jpg" class="img-fluid figure-img" style="width:5.29in"></p>
@@ -584,9 +584,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="postprocessing" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="postprocessing"><span class="header-section-number">5.9</span> Postprocessing</h2>
-<p>Now that we know that the model is working since it is detecting our keywords, let’s modify the code so we can see the result with the NiclaV completely offline (disconnected from the PC and powered by a battery).</p>
+<section id="post-processing" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="post-processing"><span class="header-section-number">5.9</span> Post-processing</h2>
+<p>Now that we know the model is working since it detects our keywords, let’s modify the code to see the result with the NiclaV completely offline (disconnected from the PC and powered by a battery, a power bank, or an independent 5V power supply).</p>
 <p>The idea is that whenever the keyword YES is detected, the Green LED will light; if a NO is heard, the Red LED will light, if it is a UNKNOW, the Blue LED will light; and in the presence of noise (No Keyword), the LEDs will be OFF.</p>
 <p>We should modify one of the code examples. Let’s do it now with the <code>nicla-vision_microphone_continuous</code>.</p>
 <p>Start with initializing the LEDs:</p>

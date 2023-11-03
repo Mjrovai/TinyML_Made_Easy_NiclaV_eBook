@@ -96,6 +96,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -203,6 +205,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Book</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -342,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/imu_ide.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>Next, go to <code>Examples &gt; Arduino_LSM6DSOX &gt; SimpleAccelerometer</code> and run the accelerometer test. You can check if it works by opening the IDE Serial Monitor or Plotter. The values are in g (earth gravity), with a default range of +/4g:</p>
+<p>Next, go to <code>Examples &gt; Arduino_LSM6DSOX &gt; SimpleAccelerometer</code> and run the accelerometer test. You can check if it works by opening the IDE Serial Monitor or Plotter. The values are in g (earth gravity), with a default range of +/- 4g:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/imu_test.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
@@ -350,11 +358,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="defining-the-sampling-frequency" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="defining-the-sampling-frequency"><span class="header-section-number">6.2.1</span> Defining the Sampling frequency:</h3>
-<p>Choosing an appropriate sampling frequency is crucial for capturing the motion characteristics you’re interested in studying. The Nyquist-Shannon sampling theorem states that you should sample at least twice the highest frequency component in the signal to be able to reconstruct it properly. In the context of motion classification and anomaly detection for transportation, the choice of sampling frequency would depend on several factors:</p>
+<p>Choosing an appropriate sampling frequency is crucial for capturing the motion characteristics you’re interested in studying. The Nyquist-Shannon sampling theorem states that the sampling rate should be at least twice the highest frequency component in the signal to reconstruct it properly. In the context of motion classification and anomaly detection for transportation, the choice of sampling frequency would depend on several factors:</p>
 <ol type="1">
 <li><p><strong>Nature of the Motion</strong>: Different types of transportation (terrestrial, maritime, etc.) may involve different ranges of motion frequencies. Faster movements may require higher sampling frequencies.</p></li>
 <li><p><strong>Hardware Limitations</strong>: The Arduino Nicla Vision board and any associated sensors may have limitations on how fast they can sample data.</p></li>
-<li><p><strong>Computational Resources</strong>: Higher sampling rates will generate more data, which might be computationally intensive, especially in a TinyML environment.</p></li>
+<li><p><strong>Computational Resources</strong>: Higher sampling rates will generate more data, which might be computationally intensive, especially critical in a TinyML environment.</p></li>
 <li><p><strong>Battery Life</strong>: A higher sampling rate will consume more power. If the system is battery-operated, this is an important consideration.</p></li>
 <li><p><strong>Data Storage</strong>: More frequent sampling will require more storage space, another crucial consideration for embedded systems with limited memory.</p></li>
 </ol>
@@ -408,14 +416,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Inspecting the Serial Monitor, we can see that we are capturing 50 samples per second.</p>
+<p>Uploading the sketch and inspecting the Serial Monitor, we can see that we are capturing 50 samples per second.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/sampling.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
 <blockquote class="blockquote">
-<p>Note that with the Nicla board resting on a table (with the camera facing down), the z-axis measures around 9.8m/s2, the expected earth acceleration.</p>
+<p>Note that with the Nicla board resting on a table (with the camera facing down), the z-axis measures around 9.8m/s<span class="math inline">\(^2\)</span>, the expected earth acceleration.</p>
 </blockquote>
 </section>
 </section>
@@ -433,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/classes.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>From the above images, we can define for our simulation that primarily horizontal movements (x-axis) should be associated with the “Terrestrial class,” Vertical movements (z-axis) with the “Lift Class,” no activity with the “Idle class,” and movement on all three axes to <a href="https://www.containerhandbuch.de/chb_e/stra/index.html?/chb_e/stra/stra_02_03_03.htm">Maritime class.</a></p>
+<p>From the above images, we can define for our simulation that primarily horizontal movements (x or y axis) should be associated with the “Terrestrial class,” Vertical movements (z-axis) with the “Lift Class,” no activity with the “Idle class,” and movement on all three axes to <a href="https://www.containerhandbuch.de/chb_e/stra/index.html?/chb_e/stra/stra_02_03_03.htm">Maritime class.</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/classes_mov_def.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
@@ -442,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-collection" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">6.4</span> Data Collection</h2>
-<p>For data collection, we can have several options. In a real case, we can have our device, for example, connected directly to one container, and the data collected on a file (for example .CSV) and stored on an SD card (Via SPI connection) or an offline repo in your computer. Data can also be sent remotely to a nearby Bluetooth repository, such as a mobile phone (similar to this project: <a href="https://www.hackster.io/mjrobot/sensor-datalogger-50e44d">Sensor DataLogger</a>). Once your dataset is collected and stored as a .CSV file, it can be uploaded to the Studio using the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/csv-wizard">CSV Wizard tool</a>.</p>
+<p>For data collection, we can have several options. In a real case, we can have our device, for example, connected directly to one container, and the data collected on a file (for example .CSV) and stored on an SD card (Via SPI connection) or an offline repo in your computer. Data can also be sent remotely to a nearby repository, such as a mobile phone, using Bluetooth (as done in this project: <a href="https://www.hackster.io/mjrobot/sensor-datalogger-50e44d">Sensor DataLogger</a>). Once your dataset is collected and stored as a .CSV file, it can be uploaded to the Studio using the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/csv-wizard">CSV Wizard tool</a>.</p>
 <blockquote class="blockquote">
 <p>In this <a href="https://youtu.be/2KBPq_826WM">video</a>, you can learn alternative ways to send data to the Edge Impulse Studio.</p>
 </blockquote>
@@ -485,7 +493,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-collection-1" class="level3" data-number="6.4.2">
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="data-collection-1"><span class="header-section-number">6.4.2</span> Data Collection</h3>
-<p>On the <code>Data Acquisition</code> section, you should see that your board <code>[NiclaV]</code> is connected. The sensor is available: <code>[sensor with 3 axes (accX, accY, accZ)]</code> with a sampling frequency of <code>[50Hz]</code>. The Studio suggests a sample length of <code>[10000]</code> ms (10s). The last thing to do is define the sample label you will connect. Let’s start with<code>[terretrial]</code>:</p>
+<p>On the <code>Data Acquisition</code> section, you should see that your board <code>[NiclaV]</code> is connected. The sensor is available: <code>[sensor with 3 axes (accX, accY, accZ)]</code> with a sampling frequency of <code>[50Hz]</code>. The Studio suggests a sample length of <code>[10000]</code> ms (10s). The last thing left is defining the sample label. Let’s start with<code>[terrestrial]</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/collect_data.jpg" class="img-fluid figure-img" style="width:5.64in"></p>
@@ -497,7 +505,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/terrestrial_result.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>As expected, we can see that movement was captured majority by one axis, the Y (green). In the blue, we see the Z axis, around -10 m/s2 (the Nicla has the camera facing up).</p>
+<p>As expected, the movement was captured mainly in the Y-axis (green). In the blue, we see the Z axis, around -10 m/s<span class="math inline">\(^2\)</span> (the Nicla has the camera facing up).</p>
 <p>As discussed before, we should capture data from all four Transportation Classes. So, imagine that you have a container with a built-in accelerometer facing the following situations:</p>
 <p><strong>Maritime</strong> (pallets in boats into an angry ocean). The movement is captured on all three axes:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -511,19 +519,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/lift_result.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p><strong>Idle</strong> (Palettes in a warehouse). No movement detected by the accelerometer:</p>
+<p><strong>Idle</strong> (Paletts in a warehouse). No movement detected by the accelerometer:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/idle_result.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>You can capture, for example, 2 minutes (twelve samples of 10 seconds) for each of the four classes (a total of 8 minutes of data). Using the <code>three dots</code> menu after each one of the samples, select 2 of them, moving them for the Test set. Alternatively, you can use the automatic <code>Train/Test Split tool</code> on the <code>Danger Zone</code> of <code>Dashboard</code> tab. Below, you can see the result dataset:</p>
+<p>You can capture, for example, 2 minutes (twelve samples of 10 seconds) for each of the four classes (a total of 8 minutes of data). Using the <code>three dots</code> menu after each one of the samples, select 2 of them, reserving them for the Test set. Alternatively, you can use the automatic <code>Train/Test Split tool</code> on the <code>Danger Zone</code> of <code>Dashboard</code> tab. Below, you can see the resulting dataset:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/dataset.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>Once you have captured your dataset, you can explore it in more detail using the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/data-explorer">Data Explorer</a>, a visual tool to find outliers or mislabeled data (and help to correct them). The data explorer first tries to extract meaningful features from your data (through signal processing and neural network embeddings) and then uses a dimensionality reduction algorithm such as <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a> to map these features to a 2D space. This gives you a one-look overview of your complete dataset.</p>
+<p>Once you have captured your dataset, you can explore it in more detail using the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/data-explorer">Data Explorer</a>, a visual tool to find outliers or mislabeled data (helping to correct them). The data explorer first tries to extract meaningful features from your data (by applying signal processing and neural network embeddings) and then uses a dimensionality reduction algorithm such as <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a> or <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a> to map these features to a 2D space. This gives you a one-look overview of your complete dataset.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/data_explorer.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
@@ -546,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/anomaly_detect.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>The sampling frequency should be automatically captured, if not, enter with <code>[50]</code>Hz. The Studio suggests a <em>Window Size</em> of 2 seconds (<code>[2000]</code> ms) with a <em>sliding window</em> of <code>[20]</code>ms. What we are defining in this step is that we will pre-process the captured data (Time-Seres data), creating a tabular dataset features that will be the input for a Neural Networks Classifier (DNN) and an Anomaly Detection model (K-Means), as shown below:</p>
+<p>The sampling frequency should be automatically captured, if not, enter it: <code>[50]</code>Hz. The Studio suggests a <em>Window Size</em> of 2 seconds (<code>[2000]</code> ms) with a <em>sliding window</em> of <code>[20]</code>ms. What we are defining in this step is that we will pre-process the captured data (Time-Seres data), creating a tabular dataset features) that will be the input for a Neural Networks Classifier (DNN) and an Anomaly Detection model (K-Means), as shown below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/impulse-block.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
@@ -558,7 +566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Data pre-processing is extracting features from the dataset captured with the accelerometer, which involves processing and analyzing the raw data. Accelerometers measure the acceleration of an object along one or more axes (typically three, denoted as X, Y, and Z). These measurements can be used to understand various aspects of the object’s motion, such as movement patterns and vibrations.</p>
 <p>Raw accelerometer data can be noisy and contain errors or irrelevant information. Preprocessing steps, such as filtering and normalization, can clean and standardize the data, making it more suitable for feature extraction. In our case, we should divide the data into smaller segments or <strong>windows</strong>. This can help focus on specific events or activities within the dataset, making feature extraction more manageable and meaningful. The <strong>window size</strong> and overlap (<strong>window increase</strong>) choice depend on the application and the frequency of the events of interest. As a thumb rule, we should try to capture a couple of “cycles of data”.</p>
 <blockquote class="blockquote">
-<p>With a sampling rate (SR) of 50Hz and a window size of 2 seconds, we will get 100 samples per axis, or 300 in total (3 axis x 2 seconds x 50 samples). We will slide this window each 200ms, creating a larger dataset where each instance has 300 raw features.</p>
+<p>With a sampling rate (SR) of 50Hz and a window size of 2 seconds, we will get 100 samples per axis, or 300 in total (3 axis x 2 seconds x 50 samples). We will slide this window every 200ms, creating a larger dataset where each instance has 300 raw features.</p>
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -578,13 +586,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Data preprocessing is a challenging area for embedded machine learning, still, Edge Impulse helps overcome this with its digital signal processing (DSP) preprocessing step and, more specifically, the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/processing-blocks/spectral-features">Spectral Features Block</a>.</p>
 <p>On the Studio, the collected raw dataset will be the input of a Spectral Analysis block, which is excellent for analyzing repetitive motion, such as data from accelerometers. This block will perform a DSP (Digital Signal Processing), extracting features such as <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> or <a href="https://en.wikipedia.org/wiki/Digital_signal_processing#Wavelet">Wavelets</a>.</p>
 <p>For our project, once the time signal is continuous, we should use FFT with, for example, a length of <code>[32]</code>.</p>
-<p>For that <strong>Time Domain Statistical features</strong> per axis/channel are:</p>
+<p>The per axis/channel <strong>Time Domain Statistical features</strong> are:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Root_mean_square">RMS</a>: 1 feature</li>
 <li><a href="https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FSkewness">Skewness</a>: 1 feature</li>
 <li><a href="https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FKurtosis">Kurtosis</a>: 1 feature</li>
 </ul>
-<p>And the <strong>Frequency Domain Spectral features</strong> per axis/channel are:</p>
+<p>The per axis/channel <strong>Frequency Domain Spectral features</strong> are:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Spectral_density">Spectral Power</a>: 16 features (FFT Length/2)</li>
 <li>Skewness: 1 feature</li>
@@ -605,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>At the top menu, select the <code>Generate Features</code> option and the <code>Generate Features</code> button. Each 2-second window data will be converted into one data point of 63 features.</p>
 <blockquote class="blockquote">
-<p>The Feature Explorer will show those data in 2D using <a href="https://umap-learn.readthedocs.io/en/latest/">UMAP.</a> Uniform Manifold Approximation and Projection (UMAP) is a dimension reduction technique that can be used for visualization similarly to t-SNE but also for general non-linear dimension reduction.</p>
+<p>The Feature Explorer will show those data in 2D using <a href="https://umap-learn.readthedocs.io/en/latest/">UMAP.</a> Uniform Manifold Approximation and Projection (UMAP) is a dimension reduction technique that can be used for visualization similarly to t-SNE but is also applicable for general non-linear dimension reduction.</p>
 </blockquote>
 <p>The visualization makes it possible to verify that after the feature generation, the classes present keep their excellent separation, which indicates that the classifier should work well. Optionally, you can analyze how important each one of the features is for one class compared with others.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -623,13 +631,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/model.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>As hyperparameters, we will use a Learning Rate of <code>[0.005]</code>, a Batch size of <code>[32],</code>and<code>[20]</code>% of data for validation for<code>[30]</code> epochs. After training, we can see that the accuracy is 98.5%. The cost of memory and latency is meager.</p>
+<p>As hyperparameters, we will use a Learning Rate of <code>[0.005]</code>, a Batch size of <code>[32]</code>, and <code>[20]</code>% of data for validation for <code>[30]</code> epochs. After training, we can see that the accuracy is 98.5%. The cost of memory and latency is meager.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/train.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>For Anomaly Detection, we will choose the suggested features that are precisely the most important ones in the Feature Extraction, plus the accZ RMS. The number of clusters will be 32, as suggested by the Studio:</p>
+<p>For Anomaly Detection, we will choose the suggested features that are precisely the most important ones in the Feature Extraction, plus the accZ RMS. The number of clusters will be <code>[32]</code>, as suggested by the Studio:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/anom_det_train.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
@@ -638,13 +646,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="testing" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="testing"><span class="header-section-number">6.7</span> Testing</h2>
-<p>We can verify how our model will behave with unknown data using 20% of the data left behind during the data capture phase. The result was almost 95%, which is good. You can always work to improve the results, for example, to understand what went wrong with one of the wrong results. If it is a unique situation, you can add that sample to the training dataset and repeat the process. The default minimum threshold for a considered uncertain result is 0.6 for classification and 0.3 for anomaly. Once we have four classes (which output should add 1.0), you can also set up a lower threshold for a class to be considered valid (for example, 0.4). You can <code>Set confidence thresholds</code> on the <code>three dots</code> menu, besides the <code>Classy all</code> button.</p>
+<p>We can verify how our model will behave with unknown data using 20% of the data left behind during the data capture phase. The result was almost 95%, which is good. You can always work to improve the results, for example, to understand what went wrong with one of the wrong results. If it is a unique situation, you can add it to the training dataset and then repeat it.</p>
+<p>The default minimum threshold for a considered uncertain result is <code>[0.6]</code> for classification and <code>[0.3]</code> for anomaly. Once we have four classes (their output sum should be 1.0), you can also set up a lower threshold for a class to be considered valid (for example, 0.4). You can <code>Set confidence thresholds</code> on the <code>three dots</code> menu, besides the <code>Classy all</code> button.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/model_testing.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>You should also use your device (which is still connected to the Studio) and perform some Live Classification.</p>
+<p>You can also perform Live Classification with your device (which should still be connected to the Studio).</p>
 <blockquote class="blockquote">
 <p>Be aware that here, you will capture real data with your device and upload it to the Studio, where an inference will be taken using the trained model (But the <strong>model is NOT in your device</strong>).</p>
 </blockquote>
@@ -668,10 +677,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Note that the code created by Edge Impulse considers a <em>sensor fusion</em> approach where the IMU (Accelerometer and Gyroscope) and the ToF are used. At the beginning of the code, you have the libraries related to our project, IMU and ToF:</p>
-<pre><code>/* Includes ---------------------------------------------------------------- */
-#include &lt;NICLA_Vision_Movement_Classification_inferencing.h&gt; 
-#include &lt;Arduino_LSM6DSOX.h&gt; //IMU
-#include "VL53L1X.h" // ToF</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Includes ---------------------------------------------------------------- */</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;NICLA_Vision_Movement_Classification_inferencing.h&gt;</span><span class="pp"> </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Arduino_LSM6DSOX.h&gt;</span><span class="pp"> </span><span class="co">//IMU</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"VL53L1X.h"</span><span class="pp"> </span><span class="co">// ToF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p>You can keep the code this way for testing because the trained model will use only features pre-processed from the accelerometer. But consider that you will write your code only with the needed libraries for a real project.</p>
 </blockquote>
@@ -694,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/inference_2.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>Note that in all situations above, the value of the <code>anomaly score</code> was smaller than 0.0. Try a new movement that was not part of the original dataset,m for example, “rolling” the Nicla, facing the camera upside-down, as a container falling from a boat or even a boat accident:</p>
+<p>Note that in all situations above, the value of the <code>anomaly score</code> was smaller than 0.0. Try a new movement that was not part of the original dataset, for example, “rolling” the Nicla, facing the camera upside-down, as a container falling from a boat or even a boat accident:</p>
 <ul>
 <li><strong>anomaly detection</strong>:</li>
 </ul>
@@ -714,7 +723,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="conclusion" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">6.9</span> Conclusion</h2>
 <blockquote class="blockquote">
-<p>The notebooks and codes used in this hands-on tutorial on the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/tree/main/Motion_Classification">GitHub</a> repository will be found.</p>
+<p>The notebooks and codes used in this hands-on tutorial will be found on the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/tree/main/Motion_Classification">GitHub</a> repository.</p>
 </blockquote>
 <p>Before we finish, consider that Movement Classification and Object Detection can be utilized in many applications across various domains. Here are some of the potential applications:</p>
 <section id="case-applications" class="level3" data-number="6.9.1">
@@ -723,7 +732,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 data-number="6.9.1.1" class="anchored" data-anchor-id="industrial-and-manufacturing"><span class="header-section-number">6.9.1.1</span> Industrial and Manufacturing</h4>
 <ul>
 <li><strong>Predictive Maintenance</strong>: Detecting anomalies in machinery motion to predict failures before they occur.</li>
-<li><strong>Quality Control</strong>: Monitoring the motion of assembly lines or robotic arms for precision and detecting deviations from the standard motion pattern.</li>
+<li><strong>Quality Control</strong>: Monitoring the motion of assembly lines or robotic arms for precision assessment and deviation detection from the standard motion pattern.</li>
 <li><strong>Warehouse Logistics</strong>: Managing and tracking the movement of goods with automated systems that classify different types of motion and detect anomalies in handling.</li>
 </ul>
 </section>
@@ -780,7 +789,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="nicla-3d-case" class="level3" data-number="6.9.2">
 <h3 data-number="6.9.2" class="anchored" data-anchor-id="nicla-3d-case"><span class="header-section-number">6.9.2</span> Nicla 3D case</h3>
-<p>For real applications, as some described before, we can add a case to our device, and Eoin Jordan, from Edge Impulse, developed a great wearable and machine health case for the Nicla range of boards. It works with a 10mm magnet, 2M screws, and a 16mm strap for human and machine health use cases. Here is the link: <a href="https://www.thingiverse.com/thing:5923305">Arduino Nicla Voice and Vision Wearable Case</a>.</p>
+<p>For real applications, as some described before, we can add a case to our device, and Eoin Jordan, from Edge Impulse, developed a great wearable and machine health case for the Nicla range of boards. It works with a 10mm magnet, 2M screws, and a 16mm strap for human and machine health use case scenarios. Here is the link: <a href="https://www.thingiverse.com/thing:5923305">Arduino Nicla Voice and Vision Wearable Case</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/case.jpg" class="img-fluid figure-img" style="width:6.5in"></p>

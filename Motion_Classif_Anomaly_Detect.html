@@ -485,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-collection-1" class="level3" data-number="6.4.2">
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="data-collection-1"><span class="header-section-number">6.4.2</span> Data Collection</h3>
-<p>On the <code>Data Acquisition</code> section, you should see that your board <code>[NiclaV]</code> is connected. The sensor is available: <code>[sensor with 3 axes (accX, accY, accZ)]</code> with a sampling frequency of <code>[50Hz]</code>. The Studio suggests a sample length of <code>[10000]</code> ms (10s). The last thing to do is define the sample label you will connect. Let’s start with<code>[terretrial</code>:</p>
+<p>On the <code>Data Acquisition</code> section, you should see that your board <code>[NiclaV]</code> is connected. The sensor is available: <code>[sensor with 3 axes (accX, accY, accZ)]</code> with a sampling frequency of <code>[50Hz]</code>. The Studio suggests a sample length of <code>[10000]</code> ms (10s). The last thing to do is define the sample label you will connect. Let’s start with<code>[terretrial]</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/collect_data.jpg" class="img-fluid figure-img" style="width:5.64in"></p>
@@ -546,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/anomaly_detect.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<p>The sampling frequency should be automatically captured, if not, enter with <code>[50]</code>Hz. The Studio suggests a <em>Window Size</em> of 2 seconds (<code>[2000]</code> ms) with a <em>sliding window</em> of <code>[20]</code>ms. What we are defining in this step is that we will pre-process the captured data (Time-Seres data), creating a tabular dataset features) that will be the input for a Neural Networks Classifier (DNN) and an Anomaly Detection model (K-Means), as shown below:</p>
+<p>The sampling frequency should be automatically captured, if not, enter with <code>[50]</code>Hz. The Studio suggests a <em>Window Size</em> of 2 seconds (<code>[2000]</code> ms) with a <em>sliding window</em> of <code>[20]</code>ms. What we are defining in this step is that we will pre-process the captured data (Time-Seres data), creating a tabular dataset features that will be the input for a Neural Networks Classifier (DNN) and an Anomaly Detection model (K-Means), as shown below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/imgs_motion_classif/impulse-block.jpg" class="img-fluid figure-img" style="width:6.5in"></p>

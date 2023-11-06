@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TinyML Made Easy - 6&nbsp; Motion Classification and Anomaly Detection</title>
+<title>TinyML Made Easy - 7&nbsp; Motion Classification and Anomaly Detection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./kws_nicla.html" rel="prev">
+<link href="./dsp_spectral_features_block.html" rel="prev">
 <link href="./cover.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Motion_Classif_Anomaly_Detect.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Motion Classification and Anomaly Detection</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Motion_Classif_Anomaly_Detect.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Motion Classification and Anomaly Detection</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -245,8 +245,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./dsp_spectral_features_block.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DSP - Spectral Features</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Motion_Classif_Anomaly_Detect.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Motion Classification and Anomaly Detection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Motion Classification and Anomaly Detection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -265,37 +271,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">6.1.1</span> Learning Objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">7.1.1</span> Learning Objectives</a></li>
   </ul></li>
-  <li><a href="#imu-installation-and-testing" id="toc-imu-installation-and-testing" class="nav-link" data-scroll-target="#imu-installation-and-testing"><span class="header-section-number">6.2</span> IMU Installation and testing</a>
+  <li><a href="#imu-installation-and-testing" id="toc-imu-installation-and-testing" class="nav-link" data-scroll-target="#imu-installation-and-testing"><span class="header-section-number">7.2</span> IMU Installation and testing</a>
   <ul class="collapse">
-  <li><a href="#defining-the-sampling-frequency" id="toc-defining-the-sampling-frequency" class="nav-link" data-scroll-target="#defining-the-sampling-frequency"><span class="header-section-number">6.2.1</span> Defining the Sampling frequency:</a></li>
+  <li><a href="#defining-the-sampling-frequency" id="toc-defining-the-sampling-frequency" class="nav-link" data-scroll-target="#defining-the-sampling-frequency"><span class="header-section-number">7.2.1</span> Defining the Sampling frequency:</a></li>
   </ul></li>
-  <li><a href="#the-case-study-simulated-container-transportation" id="toc-the-case-study-simulated-container-transportation" class="nav-link" data-scroll-target="#the-case-study-simulated-container-transportation"><span class="header-section-number">6.3</span> The Case Study: Simulated Container Transportation</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">6.4</span> Data Collection</a>
+  <li><a href="#the-case-study-simulated-container-transportation" id="toc-the-case-study-simulated-container-transportation" class="nav-link" data-scroll-target="#the-case-study-simulated-container-transportation"><span class="header-section-number">7.3</span> The Case Study: Simulated Container Transportation</a></li>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">7.4</span> Data Collection</a>
   <ul class="collapse">
-  <li><a href="#connecting-the-device-to-edge-impulse" id="toc-connecting-the-device-to-edge-impulse" class="nav-link" data-scroll-target="#connecting-the-device-to-edge-impulse"><span class="header-section-number">6.4.1</span> Connecting the device to Edge Impulse</a></li>
-  <li><a href="#data-collection-1" id="toc-data-collection-1" class="nav-link" data-scroll-target="#data-collection-1"><span class="header-section-number">6.4.2</span> Data Collection</a></li>
+  <li><a href="#connecting-the-device-to-edge-impulse" id="toc-connecting-the-device-to-edge-impulse" class="nav-link" data-scroll-target="#connecting-the-device-to-edge-impulse"><span class="header-section-number">7.4.1</span> Connecting the device to Edge Impulse</a></li>
+  <li><a href="#data-collection-1" id="toc-data-collection-1" class="nav-link" data-scroll-target="#data-collection-1"><span class="header-section-number">7.4.2</span> Data Collection</a></li>
   </ul></li>
-  <li><a href="#impulse-design" id="toc-impulse-design" class="nav-link" data-scroll-target="#impulse-design"><span class="header-section-number">6.5</span> Impulse Design</a>
+  <li><a href="#impulse-design" id="toc-impulse-design" class="nav-link" data-scroll-target="#impulse-design"><span class="header-section-number">7.5</span> Impulse Design</a>
   <ul class="collapse">
-  <li><a href="#data-pre-processing-overview" id="toc-data-pre-processing-overview" class="nav-link" data-scroll-target="#data-pre-processing-overview"><span class="header-section-number">6.5.1</span> Data Pre-Processing Overview</a></li>
-  <li><a href="#ei-studio-spectral-features" id="toc-ei-studio-spectral-features" class="nav-link" data-scroll-target="#ei-studio-spectral-features"><span class="header-section-number">6.5.2</span> EI Studio Spectral Features</a></li>
-  <li><a href="#generating-features" id="toc-generating-features" class="nav-link" data-scroll-target="#generating-features"><span class="header-section-number">6.5.3</span> Generating features</a></li>
+  <li><a href="#data-pre-processing-overview" id="toc-data-pre-processing-overview" class="nav-link" data-scroll-target="#data-pre-processing-overview"><span class="header-section-number">7.5.1</span> Data Pre-Processing Overview</a></li>
+  <li><a href="#ei-studio-spectral-features" id="toc-ei-studio-spectral-features" class="nav-link" data-scroll-target="#ei-studio-spectral-features"><span class="header-section-number">7.5.2</span> EI Studio Spectral Features</a></li>
+  <li><a href="#generating-features" id="toc-generating-features" class="nav-link" data-scroll-target="#generating-features"><span class="header-section-number">7.5.3</span> Generating features</a></li>
   </ul></li>
-  <li><a href="#models-training" id="toc-models-training" class="nav-link" data-scroll-target="#models-training"><span class="header-section-number">6.6</span> Models Training</a></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing"><span class="header-section-number">6.7</span> Testing</a></li>
-  <li><a href="#deploy" id="toc-deploy" class="nav-link" data-scroll-target="#deploy"><span class="header-section-number">6.8</span> Deploy</a>
+  <li><a href="#models-training" id="toc-models-training" class="nav-link" data-scroll-target="#models-training"><span class="header-section-number">7.6</span> Models Training</a></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing"><span class="header-section-number">7.7</span> Testing</a></li>
+  <li><a href="#deploy" id="toc-deploy" class="nav-link" data-scroll-target="#deploy"><span class="header-section-number">7.8</span> Deploy</a>
   <ul class="collapse">
-  <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference"><span class="header-section-number">6.8.1</span> Inference</a></li>
-  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing"><span class="header-section-number">6.8.2</span> Post-processing</a></li>
+  <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference"><span class="header-section-number">7.8.1</span> Inference</a></li>
+  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing"><span class="header-section-number">7.8.2</span> Post-processing</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6.9</span> Conclusion</a>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7.9</span> Conclusion</a>
   <ul class="collapse">
-  <li><a href="#case-applications" id="toc-case-applications" class="nav-link" data-scroll-target="#case-applications"><span class="header-section-number">6.9.1</span> Case Applications</a></li>
-  <li><a href="#nicla-3d-case" id="toc-nicla-3d-case" class="nav-link" data-scroll-target="#nicla-3d-case"><span class="header-section-number">6.9.2</span> Nicla 3D case</a></li>
+  <li><a href="#case-applications" id="toc-case-applications" class="nav-link" data-scroll-target="#case-applications"><span class="header-section-number">7.9.1</span> Case Applications</a></li>
+  <li><a href="#nicla-3d-case" id="toc-nicla-3d-case" class="nav-link" data-scroll-target="#nicla-3d-case"><span class="header-section-number">7.9.2</span> Nicla 3D case</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/edit/main/Motion_Classif_Anomaly_Detect.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/Mjrovai/TinyML_Made_Easy_NiclaV_eBook/blob/main/Motion_Classif_Anomaly_Detect.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -305,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Motion Classification and Anomaly Detection</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Motion Classification and Anomaly Detection</span></h1>
 </div>
 
 
@@ -325,12 +331,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/movement_anomaly_ini.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="introduction" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
 <p>Transportation is the backbone of global commerce. Millions of containers are transported daily via various means, such as ships, trucks, and trains, to destinations worldwide. Ensuring these containers’ safe and efficient transit is a monumental task that requires leveraging modern technology, and TinyML is undoubtedly one of them.</p>
 <p>In this hands-on tutorial, we will work to solve real-world problems related to transportation. We will develop a Motion Classification and Anomaly Detection system using the Arduino Nicla Vision board, the Arduino IDE, and the Edge Impulse Studio. This project will help us understand how containers experience different forces and motions during various phases of transportation, such as terrestrial and maritime transit, vertical movement via forklifts, and stationary periods in warehouses.</p>
-<section id="learning-objectives" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">6.1.1</span> Learning Objectives</h3>
+<section id="learning-objectives" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">7.1.1</span> Learning Objectives</h3>
 <ol type="1">
 <li>Setting up the Arduino Nicla Vision Board</li>
 <li>Data Collection and Preprocessing</li>
@@ -342,8 +348,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>By the end of this tutorial, you’ll have a working prototype that can classify different types of motion and detect anomalies during the transportation of containers. This knowledge can be a stepping stone to more advanced projects in the burgeoning field of TinyML involving vibration.</p>
 </section>
 </section>
-<section id="imu-installation-and-testing" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="imu-installation-and-testing"><span class="header-section-number">6.2</span> IMU Installation and testing</h2>
+<section id="imu-installation-and-testing" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="imu-installation-and-testing"><span class="header-section-number">7.2</span> IMU Installation and testing</h2>
 <p>For this project, we will use an accelerometer. As discussed in the Hands-On Tutorial, <em>Setup Nicla Vision</em>, the Nicla Vision Board has an onboard <strong>6-axis IMU</strong>: 3D gyroscope and 3D accelerometer, the <a href="https://www.st.com/resource/en/datasheet/lsm6dsox.pdf">LSM6DSOX</a>. Let’s verify if the <a href="https://github.com/arduino-libraries/Arduino_LSM6DSOX">LSM6DSOX IMU library</a> is installed. If not, install it.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -356,8 +362,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/imgs_motion_classif/imu_test.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
 </figure>
 </div>
-<section id="defining-the-sampling-frequency" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="defining-the-sampling-frequency"><span class="header-section-number">6.2.1</span> Defining the Sampling frequency:</h3>
+<section id="defining-the-sampling-frequency" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="defining-the-sampling-frequency"><span class="header-section-number">7.2.1</span> Defining the Sampling frequency:</h3>
 <p>Choosing an appropriate sampling frequency is crucial for capturing the motion characteristics you’re interested in studying. The Nyquist-Shannon sampling theorem states that the sampling rate should be at least twice the highest frequency component in the signal to reconstruct it properly. In the context of motion classification and anomaly detection for transportation, the choice of sampling frequency would depend on several factors:</p>
 <ol type="1">
 <li><p><strong>Nature of the Motion</strong>: Different types of transportation (terrestrial, maritime, etc.) may involve different ranges of motion frequencies. Faster movements may require higher sampling frequencies.</p></li>
@@ -427,8 +433,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 </section>
 </section>
-<section id="the-case-study-simulated-container-transportation" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="the-case-study-simulated-container-transportation"><span class="header-section-number">6.3</span> The Case Study: Simulated Container Transportation</h2>
+<section id="the-case-study-simulated-container-transportation" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="the-case-study-simulated-container-transportation"><span class="header-section-number">7.3</span> The Case Study: Simulated Container Transportation</h2>
 <p>We will simulate container (or better package) transportation through different scenarios to make this tutorial more relatable and practical. Using the built-in accelerometer of the Arduino Nicla Vision board, we’ll capture motion data by manually simulating the conditions of:</p>
 <ol type="1">
 <li><strong>Terrestrial</strong> Transportation (by road or train)</li>
@@ -448,14 +454,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="data-collection" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">6.4</span> Data Collection</h2>
+<section id="data-collection" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">7.4</span> Data Collection</h2>
 <p>For data collection, we can have several options. In a real case, we can have our device, for example, connected directly to one container, and the data collected on a file (for example .CSV) and stored on an SD card (Via SPI connection) or an offline repo in your computer. Data can also be sent remotely to a nearby repository, such as a mobile phone, using Bluetooth (as done in this project: <a href="https://www.hackster.io/mjrobot/sensor-datalogger-50e44d">Sensor DataLogger</a>). Once your dataset is collected and stored as a .CSV file, it can be uploaded to the Studio using the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/csv-wizard">CSV Wizard tool</a>.</p>
 <blockquote class="blockquote">
 <p>In this <a href="https://youtu.be/2KBPq_826WM">video</a>, you can learn alternative ways to send data to the Edge Impulse Studio.</p>
 </blockquote>
-<section id="connecting-the-device-to-edge-impulse" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="connecting-the-device-to-edge-impulse"><span class="header-section-number">6.4.1</span> Connecting the device to Edge Impulse</h3>
+<section id="connecting-the-device-to-edge-impulse" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="connecting-the-device-to-edge-impulse"><span class="header-section-number">7.4.1</span> Connecting the device to Edge Impulse</h3>
 <p>We will connect the Nicla directly to the Edge Impulse Studio, which will also be used for data pre-processing, model training, testing, and deployment. For that, you have two options:</p>
 <ol type="1">
 <li>Download the latest firmware and connect it directly to the <code>Data Collection</code> section.</li>
@@ -491,8 +497,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can clone the project developed for this hands-on: <a href="https://studio.edgeimpulse.com/public/302078/latest">NICLA Vision Movement Classification</a>.</p>
 </blockquote>
 </section>
-<section id="data-collection-1" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="data-collection-1"><span class="header-section-number">6.4.2</span> Data Collection</h3>
+<section id="data-collection-1" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="data-collection-1"><span class="header-section-number">7.4.2</span> Data Collection</h3>
 <p>On the <code>Data Acquisition</code> section, you should see that your board <code>[NiclaV]</code> is connected. The sensor is available: <code>[sensor with 3 axes (accX, accY, accZ)]</code> with a sampling frequency of <code>[50Hz]</code>. The Studio suggests a sample length of <code>[10000]</code> ms (10s). The last thing left is defining the sample label. Let’s start with<code>[terrestrial]</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -540,8 +546,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In our case, the dataset seems OK (good separation). But the PCA shows we can have issues between maritime (green) and lift (orange). This is expected, once on a boat, sometimes the movement can be only “vertical”.</p>
 </section>
 </section>
-<section id="impulse-design" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="impulse-design"><span class="header-section-number">6.5</span> Impulse Design</h2>
+<section id="impulse-design" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="impulse-design"><span class="header-section-number">7.5</span> Impulse Design</h2>
 <p>The next step is the definition of our Impulse, which takes the raw data and uses signal processing to extract features, passing them as the input tensor of a <em>learning block</em> to classify new data. Go to <code>Impulse Design</code> and <code>Create Impulse</code>. The Studio will suggest the basic design. Let’s also add a second <em>Learning Block</em> for <code>Anomaly Detection</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -561,8 +567,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Let’s dig into those steps and parameters to understand better what we are doing here.</p>
-<section id="data-pre-processing-overview" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="data-pre-processing-overview"><span class="header-section-number">6.5.1</span> Data Pre-Processing Overview</h3>
+<section id="data-pre-processing-overview" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="data-pre-processing-overview"><span class="header-section-number">7.5.1</span> Data Pre-Processing Overview</h3>
 <p>Data pre-processing is extracting features from the dataset captured with the accelerometer, which involves processing and analyzing the raw data. Accelerometers measure the acceleration of an object along one or more axes (typically three, denoted as X, Y, and Z). These measurements can be used to understand various aspects of the object’s motion, such as movement patterns and vibrations.</p>
 <p>Raw accelerometer data can be noisy and contain errors or irrelevant information. Preprocessing steps, such as filtering and normalization, can clean and standardize the data, making it more suitable for feature extraction. In our case, we should divide the data into smaller segments or <strong>windows</strong>. This can help focus on specific events or activities within the dataset, making feature extraction more manageable and meaningful. The <strong>window size</strong> and overlap (<strong>window increase</strong>) choice depend on the application and the frequency of the events of interest. As a thumb rule, we should try to capture a couple of “cycles of data”.</p>
 <blockquote class="blockquote">
@@ -581,8 +587,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In many cases, the number of extracted features can be large, which may lead to overfitting or increased computational complexity. Feature selection techniques, such as mutual information, correlation-based methods, or principal component analysis (PCA), can help identify the most relevant features for a given application and reduce the dimensionality of the dataset. The Studio can help with such feature importance calculations.</p>
 </section>
-<section id="ei-studio-spectral-features" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="ei-studio-spectral-features"><span class="header-section-number">6.5.2</span> EI Studio Spectral Features</h3>
+<section id="ei-studio-spectral-features" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="ei-studio-spectral-features"><span class="header-section-number">7.5.2</span> EI Studio Spectral Features</h3>
 <p>Data preprocessing is a challenging area for embedded machine learning, still, Edge Impulse helps overcome this with its digital signal processing (DSP) preprocessing step and, more specifically, the <a href="https://docs.edgeimpulse.com/docs/edge-impulse-studio/processing-blocks/spectral-features">Spectral Features Block</a>.</p>
 <p>On the Studio, the collected raw dataset will be the input of a Spectral Analysis block, which is excellent for analyzing repetitive motion, such as data from accelerometers. This block will perform a DSP (Digital Signal Processing), extracting features such as <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> or <a href="https://en.wikipedia.org/wiki/Digital_signal_processing#Wavelet">Wavelets</a>.</p>
 <p>For our project, once the time signal is continuous, we should use FFT with, for example, a length of <code>[32]</code>.</p>
@@ -603,8 +609,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can learn more about how each feature is calculated by downloading the notebook <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/blob/main/Motion_Classification/Edge_Impulse_Spectral_Features_Block.ipynb">Edge Impulse - Spectral Features Block Analysis</a> <a href="https://www.hackster.io/mjrobot/tinyml-under-the-hood-spectral-analysis-94676c">TinyML under the hood: Spectral Analysis</a> or <a href="https://colab.research.google.com/github/Mjrovai/Arduino_Nicla_Vision/blob/main/Motion_Classification/Edge_Impulse_Spectral_Features_Block.ipynb">opening it directly on Google CoLab</a>.</p>
 </blockquote>
 </section>
-<section id="generating-features" class="level3" data-number="6.5.3">
-<h3 data-number="6.5.3" class="anchored" data-anchor-id="generating-features"><span class="header-section-number">6.5.3</span> Generating features</h3>
+<section id="generating-features" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="generating-features"><span class="header-section-number">7.5.3</span> Generating features</h3>
 <p>Once we understand what the pre-processing does, it is time to finish the job. So, let’s take the raw data (time-series type) and convert it to tabular data. For that, go to the <code>Spectral Features</code> section on the <code>Parameters</code> tab, define the main parameters as discussed in the previous section (<code>[FFT]</code> with <code>[32]</code> points), and select<code>[Save Parameters]</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -623,8 +629,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="models-training" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="models-training"><span class="header-section-number">6.6</span> Models Training</h2>
+<section id="models-training" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="models-training"><span class="header-section-number">7.6</span> Models Training</h2>
 <p>Our classifier will be a Dense Neural Network (DNN) that will have 63 neurons on its input layer, two hidden layers with 20 and 10 neurons, and an output layer with four neurons (one per each class), as shown here:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -644,8 +650,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="testing" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="testing"><span class="header-section-number">6.7</span> Testing</h2>
+<section id="testing" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="testing"><span class="header-section-number">7.7</span> Testing</h2>
 <p>We can verify how our model will behave with unknown data using 20% of the data left behind during the data capture phase. The result was almost 95%, which is good. You can always work to improve the results, for example, to understand what went wrong with one of the wrong results. If it is a unique situation, you can add it to the training dataset and then repeat it.</p>
 <p>The default minimum threshold for a considered uncertain result is <code>[0.6]</code> for classification and <code>[0.3]</code> for anomaly. Once we have four classes (their output sum should be 1.0), you can also set up a lower threshold for a class to be considered valid (for example, 0.4). You can <code>Set confidence thresholds</code> on the <code>three dots</code> menu, besides the <code>Classy all</code> button.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -658,8 +664,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Be aware that here, you will capture real data with your device and upload it to the Studio, where an inference will be taken using the trained model (But the <strong>model is NOT in your device</strong>).</p>
 </blockquote>
 </section>
-<section id="deploy" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="deploy"><span class="header-section-number">6.8</span> Deploy</h2>
+<section id="deploy" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="deploy"><span class="header-section-number">7.8</span> Deploy</h2>
 <p>It is time to deploy the preprocessing block and the trained model to the Nicla. The Studio will package all the needed libraries, preprocessing functions, and trained models, downloading them to your computer. You should select the option <code>Arduino Library</code>, and at the bottom, you can choose <code>Quantized (Int8)</code> or <code>Unoptimized (float32)</code> and <code>[Build]</code>. A Zip file will be created and downloaded to your computer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -667,8 +673,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>On your Arduino IDE, go to the <code>Sketch</code> tab, select <code>Add.ZIP Library</code>, and Choose the.zip file downloaded by the Studio. A message will appear in the IDE Terminal: <code>Library installed</code>.</p>
-<section id="inference" class="level3" data-number="6.8.1">
-<h3 data-number="6.8.1" class="anchored" data-anchor-id="inference"><span class="header-section-number">6.8.1</span> Inference</h3>
+<section id="inference" class="level3" data-number="7.8.1">
+<h3 data-number="7.8.1" class="anchored" data-anchor-id="inference"><span class="header-section-number">7.8.1</span> Inference</h3>
 <p>Now, it is time for a real test. We will make inferences wholly disconnected from the Studio. Let’s change one of the code examples created when you deploy the Arduino Library.</p>
 <p>In your Arduino IDE, go to the <code>File/Examples</code> tab and look for your project, and on examples, select <code>Nicla_vision_fusion</code>:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -714,81 +720,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>In this case, the anomaly is much bigger, over 1.00</p>
 </section>
-<section id="post-processing" class="level3" data-number="6.8.2">
-<h3 data-number="6.8.2" class="anchored" data-anchor-id="post-processing"><span class="header-section-number">6.8.2</span> Post-processing</h3>
+<section id="post-processing" class="level3" data-number="7.8.2">
+<h3 data-number="7.8.2" class="anchored" data-anchor-id="post-processing"><span class="header-section-number">7.8.2</span> Post-processing</h3>
 <p>Now that we know the model is working since it detects the movements, we suggest that you modify the code to see the result with the NiclaV completely offline (disconnected from the PC and powered by a battery, a power bank, or an independent 5V power supply).</p>
 <p>The idea is to do the same as with the KWS project: if one specific movement is detected, a specific LED could be lit. For example, if <em>terrestrial</em> is detected, the Green LED will light; if <em>maritime</em>, the Red LED will light, if it is a <em>lift,</em> the Blue LED will light; and if no movement is detected <em>(idle</em>), the LEDs will be OFF. You can also add a condition when an anomaly is detected, in this case, for example, a white color can be used (all e LEDs light simultaneously).</p>
 </section>
 </section>
-<section id="conclusion" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">6.9</span> Conclusion</h2>
+<section id="conclusion" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7.9</span> Conclusion</h2>
 <blockquote class="blockquote">
 <p>The notebooks and codes used in this hands-on tutorial will be found on the <a href="https://github.com/Mjrovai/Arduino_Nicla_Vision/tree/main/Motion_Classification">GitHub</a> repository.</p>
 </blockquote>
 <p>Before we finish, consider that Movement Classification and Object Detection can be utilized in many applications across various domains. Here are some of the potential applications:</p>
-<section id="case-applications" class="level3" data-number="6.9.1">
-<h3 data-number="6.9.1" class="anchored" data-anchor-id="case-applications"><span class="header-section-number">6.9.1</span> Case Applications</h3>
-<section id="industrial-and-manufacturing" class="level4" data-number="6.9.1.1">
-<h4 data-number="6.9.1.1" class="anchored" data-anchor-id="industrial-and-manufacturing"><span class="header-section-number">6.9.1.1</span> Industrial and Manufacturing</h4>
+<section id="case-applications" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="case-applications"><span class="header-section-number">7.9.1</span> Case Applications</h3>
+<section id="industrial-and-manufacturing" class="level4" data-number="7.9.1.1">
+<h4 data-number="7.9.1.1" class="anchored" data-anchor-id="industrial-and-manufacturing"><span class="header-section-number">7.9.1.1</span> Industrial and Manufacturing</h4>
 <ul>
 <li><strong>Predictive Maintenance</strong>: Detecting anomalies in machinery motion to predict failures before they occur.</li>
 <li><strong>Quality Control</strong>: Monitoring the motion of assembly lines or robotic arms for precision assessment and deviation detection from the standard motion pattern.</li>
 <li><strong>Warehouse Logistics</strong>: Managing and tracking the movement of goods with automated systems that classify different types of motion and detect anomalies in handling.</li>
 </ul>
 </section>
-<section id="healthcare" class="level4" data-number="6.9.1.2">
-<h4 data-number="6.9.1.2" class="anchored" data-anchor-id="healthcare"><span class="header-section-number">6.9.1.2</span> Healthcare</h4>
+<section id="healthcare" class="level4" data-number="7.9.1.2">
+<h4 data-number="7.9.1.2" class="anchored" data-anchor-id="healthcare"><span class="header-section-number">7.9.1.2</span> Healthcare</h4>
 <ul>
 <li><strong>Patient Monitoring</strong>: Detecting falls or abnormal movements in the elderly or those with mobility issues.</li>
 <li><strong>Rehabilitation</strong>: Monitoring the progress of patients recovering from injuries by classifying motion patterns during physical therapy sessions.</li>
 <li><strong>Activity Recognition</strong>: Classifying types of physical activity for fitness applications or patient monitoring.</li>
 </ul>
 </section>
-<section id="consumer-electronics" class="level4" data-number="6.9.1.3">
-<h4 data-number="6.9.1.3" class="anchored" data-anchor-id="consumer-electronics"><span class="header-section-number">6.9.1.3</span> Consumer Electronics</h4>
+<section id="consumer-electronics" class="level4" data-number="7.9.1.3">
+<h4 data-number="7.9.1.3" class="anchored" data-anchor-id="consumer-electronics"><span class="header-section-number">7.9.1.3</span> Consumer Electronics</h4>
 <ul>
 <li><strong>Gesture Control</strong>: Interpreting specific motions to control devices, such as turning on lights with a hand wave.</li>
 <li><strong>Gaming</strong>: Enhancing gaming experiences with motion-controlled inputs.</li>
 </ul>
 </section>
-<section id="transportation-and-logistics" class="level4" data-number="6.9.1.4">
-<h4 data-number="6.9.1.4" class="anchored" data-anchor-id="transportation-and-logistics"><span class="header-section-number">6.9.1.4</span> Transportation and Logistics</h4>
+<section id="transportation-and-logistics" class="level4" data-number="7.9.1.4">
+<h4 data-number="7.9.1.4" class="anchored" data-anchor-id="transportation-and-logistics"><span class="header-section-number">7.9.1.4</span> Transportation and Logistics</h4>
 <ul>
 <li><strong>Vehicle Telematics</strong>: Monitoring vehicle motion for unusual behavior such as hard braking, sharp turns, or accidents.</li>
 <li><strong>Cargo Monitoring</strong>: Ensuring the integrity of goods during transport by detecting unusual movements that could indicate tampering or mishandling.</li>
 </ul>
 </section>
-<section id="smart-cities-and-infrastructure" class="level4" data-number="6.9.1.5">
-<h4 data-number="6.9.1.5" class="anchored" data-anchor-id="smart-cities-and-infrastructure"><span class="header-section-number">6.9.1.5</span> Smart Cities and Infrastructure</h4>
+<section id="smart-cities-and-infrastructure" class="level4" data-number="7.9.1.5">
+<h4 data-number="7.9.1.5" class="anchored" data-anchor-id="smart-cities-and-infrastructure"><span class="header-section-number">7.9.1.5</span> Smart Cities and Infrastructure</h4>
 <ul>
 <li><strong>Structural Health Monitoring</strong>: Detecting vibrations or movements within structures that could indicate potential failures or maintenance needs.</li>
 <li><strong>Traffic Management</strong>: Analyzing the flow of pedestrians or vehicles to improve urban mobility and safety.</li>
 </ul>
 </section>
-<section id="security-and-surveillance" class="level4" data-number="6.9.1.6">
-<h4 data-number="6.9.1.6" class="anchored" data-anchor-id="security-and-surveillance"><span class="header-section-number">6.9.1.6</span> Security and Surveillance</h4>
+<section id="security-and-surveillance" class="level4" data-number="7.9.1.6">
+<h4 data-number="7.9.1.6" class="anchored" data-anchor-id="security-and-surveillance"><span class="header-section-number">7.9.1.6</span> Security and Surveillance</h4>
 <ul>
 <li><strong>Intruder Detection</strong>: Detecting motion patterns typical of unauthorized access or other security breaches.</li>
 <li><strong>Wildlife Monitoring</strong>: Detecting poachers or abnormal animal movements in protected areas.</li>
 </ul>
 </section>
-<section id="agriculture" class="level4" data-number="6.9.1.7">
-<h4 data-number="6.9.1.7" class="anchored" data-anchor-id="agriculture"><span class="header-section-number">6.9.1.7</span> Agriculture</h4>
+<section id="agriculture" class="level4" data-number="7.9.1.7">
+<h4 data-number="7.9.1.7" class="anchored" data-anchor-id="agriculture"><span class="header-section-number">7.9.1.7</span> Agriculture</h4>
 <ul>
 <li><strong>Equipment Monitoring</strong>: Tracking the performance and usage of agricultural machinery.</li>
 <li><strong>Animal Behavior Analysis</strong>: Monitoring livestock movements to detect behaviors indicating health issues or stress.</li>
 </ul>
 </section>
-<section id="environmental-monitoring" class="level4" data-number="6.9.1.8">
-<h4 data-number="6.9.1.8" class="anchored" data-anchor-id="environmental-monitoring"><span class="header-section-number">6.9.1.8</span> Environmental Monitoring</h4>
+<section id="environmental-monitoring" class="level4" data-number="7.9.1.8">
+<h4 data-number="7.9.1.8" class="anchored" data-anchor-id="environmental-monitoring"><span class="header-section-number">7.9.1.8</span> Environmental Monitoring</h4>
 <ul>
 <li><strong>Seismic Activity</strong>: Detecting irregular motion patterns that precede earthquakes or other geologically relevant events.</li>
 <li><strong>Oceanography</strong>: Studying wave patterns or marine movements for research and safety purposes.</li>
 </ul>
 </section>
 </section>
-<section id="nicla-3d-case" class="level3" data-number="6.9.2">
-<h3 data-number="6.9.2" class="anchored" data-anchor-id="nicla-3d-case"><span class="header-section-number">6.9.2</span> Nicla 3D case</h3>
+<section id="nicla-3d-case" class="level3" data-number="7.9.2">
+<h3 data-number="7.9.2" class="anchored" data-anchor-id="nicla-3d-case"><span class="header-section-number">7.9.2</span> Nicla 3D case</h3>
 <p>For real applications, as some described before, we can add a case to our device, and Eoin Jordan, from Edge Impulse, developed a great wearable and machine health case for the Nicla range of boards. It works with a 10mm magnet, 2M screws, and a 16mm strap for human and machine health use case scenarios. Here is the link: <a href="https://www.thingiverse.com/thing:5923305">Arduino Nicla Voice and Vision Wearable Case</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1053,8 +1059,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./kws_nicla.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Keyword Spotting (KWS)</span></span>
+      <a href="./dsp_spectral_features_block.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DSP - Spectral Features</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

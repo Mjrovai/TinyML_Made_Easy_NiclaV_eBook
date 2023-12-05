@@ -323,6 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/nicla-kws.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<figcaption class="figure-caption"><em>DALL·E 3 Prompt: 1950s style cartoon scene set in a vintage audio research room. Two Afro-American female scientists are at the center. One holds a magnifying glass, closely examining ancient circuitry, while the other takes notes. On their wooden table, there are multiple boards with sensors, notably featuring a microphone. Behind these boards, a computer with a large, rounded back displays the Arduino IDE. The IDE showcases code for LED pin assignments and machine learning inference for voice command detection. A distinct window in the IDE, the Serial Monitor, reveals outputs indicating the spoken commands ‘yes’ and ‘no’. The room ambiance is nostalgic with vintage lamps, classic audio analysis tools, and charts depicting FFT graphs and time-domain curves.</em></figcaption>
 </figure>
 </div>
 <section id="introduction" class="level2" data-number="5.1">
@@ -437,15 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <ul>
-<li>Put the NiclaV in Boot Mode by pressing the reset button twice.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://84771188-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FGEgcCk4PkS5Pa6uBabld%2Fuploads%2Fgit-blob-111b26f413cd411b29594c377868bba901863233%2Fnicla_bootloader.gif?alt=media" class="img-fluid figure-img" style="width:6.5in"></p>
-</figure>
-</div>
-<ul>
-<li>Upload the binary <em>arduino-nicla-vision.bin</em> to your board by running the batch code corresponding to your OS.</li>
+<li><p>Put the NiclaV in Boot Mode by pressing the reset button twice.</p></li>
+<li><p>Upload the binary <em>arduino-nicla-vision.bin</em> to your board by running the batch code corresponding to your OS.</p></li>
 </ul>
 <p>Go to your project on EIS, and on the <code>Data Acquisition tab</code>, select <code>WebUSB</code>. A window will pop up; choose the option that shows that the <code>Nicla is paired</code> and press <code>[Connect]</code>.</p>
 <p>You can choose which sensor data to pick in the <code>Collect Data</code> section on the <code>Data Acquisition</code> tab. Select: <code>Built-in microphone</code>, define your <code>label</code> (for example, <em>yes</em>), the sampling <code>Frequency</code>[16000Hz], and the <code>Sample length (in milliseconds)</code>, for example [10s]. <code>Start sampling</code>.</p>

@@ -313,6 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/nicla_sys_ini.jpg" class="img-fluid figure-img" style="width:6.5in"></p>
+<figcaption class="figure-caption"><em>DALL·E 3 Prompt: Illustration reminiscent of a 1950s cartoon where the Arduino NICLA VISION board, equipped with a variety of sensors including a camera, is the focal point on an old-fashioned desk. In the background, a computer screen with rounded edges displays the Arduino IDE. The code seen is related to LED configurations and machine learning voice command detection. Outputs on the Serial Monitor explicitly display the words ‘yes’ and ‘no’.</em></figcaption>
 </figure>
 </div>
 <section id="introduction" class="level2" data-number="1.1">
@@ -445,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Any messages sent through a serial connection (using print() or error messages) will be displayed on the <strong>Serial Terminal</strong> during run time. The image captured by a camera will be displayed in the <strong>Camera Viewer</strong> Area (or Frame Buffer) and in the Histogram area, immediately below the Camera Viewer.</p>
 <p>OpenMV IDE is the premier integrated development environment with OpenMV Cameras and the Arduino Pro boards. It features a powerful text editor, debug terminal, and frame buffer viewer with a histogram display. We will use MicroPython to program the Nicla Vision.</p>
 <blockquote class="blockquote">
-<p>Before connecting the Nicla to the OpenMV IDE, ensure you have the latest bootloader version. Go to your Arduino IDE, select the Nicla board, and open the sketch on <code>Examples &gt; STM_32H747_System STM_32H747_updateBootloader</code>. Upload the code to your board. The Serial Monitor will guide you.</p>
+<p>Before connecting the Nicla to the OpenMV IDE, ensure you have the latest bootloader version. Go to your Arduino IDE, select the Nicla board, and open the sketch on <code>Examples &gt; STM_32H747_System STM32H747_manageBootloader</code>. Upload the code to your board. The Serial Monitor will guide you.</p>
 </blockquote>
 <p>After updating the bootloader, put the Nicla Vision in bootloader mode by double-pressing the reset button on the board. The built-in green LED will start fading in and out. Now return to the OpenMV IDE and click on the connect icon (Left ToolBar):</p>
 <div class="quarto-figure quarto-figure-center">
